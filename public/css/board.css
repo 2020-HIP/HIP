@@ -15,3 +15,13 @@
 
 .title_text{width:300px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 .type01 tbody tr th{text-align:left;padding-left:5%;}
+
+.board-button{
+    background-color: whitesmoke;
+    border: #deecdd 1px solid;
+}
+
+.board-button:hover{
+    background-color: #8CD790;
+    border: none;
+}
