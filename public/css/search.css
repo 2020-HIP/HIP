@@ -1,0 +1,10 @@
+.total_search {clear:both;width:850px;padding-top:20px;padding-bottom:20px;border:5px solid #c1dfc4;margin-bottom:50px;vertical-align: middle;}
+.total_search .input5 {border:1px solid #deecdd;height:30px;width:400px;vertical-align:top;padding-left:5px;}
+.inputCenter {border:1px solid #deecdd;height:30px;width:400px;vertical-align:top;margin-left:191px;padding-left:5px;}
+.total_search .btn_07 {border:0;background:#008256;font-size:12px;color:#deecdd;width:60px;height:30px;overflow:hidden;padding-bottom:4px;margin-left:5px;font-weight:bold;}
+
+p.append_check {display:block;height:20px;text-align:right;padding-right:110px;margin-top:5px;}
+p.append_check input {height:14px;line-height:14px;vertical-align:middle;}
+p.append_check label {height:14px;line-height:14px;vertical-align:middle;margin-bottom:10px;font-size:13px;padding-left:5px;}
+.findList2 {clear:both;width:850px;padding-bottom:15px;border:5px solid #8CD790;margin-bottom:27px;border-top:0;border-top:1px solid #deecdd;}
+.total_search:after {content:""; display:block;clear:both;}
