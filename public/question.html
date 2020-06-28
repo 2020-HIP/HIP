@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+
+  <title>HIP 자주하는 질문</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+  <!-- JS --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/board.css">
+</head>
+
+<body>
+      <div class="container pt-3"> 
+        <div class="row"> 
+          <!-- left content --> 
+          <div class="col-sm-4">
+            <hr style="width: 18.75rem; border: #008256 0.5rem solid;" align="left">
+            <h1 class="side-title">자주하는 질문</h1>
+            <div class="side-select">
+              <div class="side-select-small"><a href="notice.html" class="side-select-text">공지사항</a></div>
+              <div class="side-select-small"><a href="Question.html" class="side-select-text">자주 하는 질문</a></div>
+            </div>
+          </div> 
+          <!-- right content --> 
+          <div class="col-sm-8"> 
+            <hr style=" width: 18.75rem; border: #008256 0.5rem solid;" align="left">
+            <h1 class="side-title">자주하는 질문</h1>
+            <div class="total_search">  
+              <form name="commandMap" id="commandMap" method="post" action="#none" onsubmit="return false;">        
+                  <fieldset>
+                      <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="질문 검색 키워드" class="input5 korean" value="" />
+                      <button type="button" class="btn_07" id="searchMain" title="질문 검색">검색</button>
+                  </fieldset>                         
+              </form>
+          </div>
+
+              <!-- 게시판 -->
+
+              <div class="find_listBox">
+                <table class="type01" summary="번호, 제목, 조회">
+                  <colgroup>
+                    <col style="width:100px">
+                    <col style="width:450px">
+            
+                    <col style="width:130px">
+                    <col style="width:120px">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                    <th scope="col" class="first">번호</th>
+                    <th scope="col">제목</th>                    
+                    <th scope="col">조회</th>                    
+                    </tr>
+                  </thead>
+                  <tbody>
+
+            <!-- 테이블 반복 구간 시작 -->
+                    
+                    <tr>
+                      <td scope="row" title="번호" class="first ">1</td>
+                      <td scope="row" title="제목" class="board_title1">
+                      <div class="title_text">HIP은 어떤 사이트인가요?</div></td>
+                      <td scope="row" title="조회수">3</td>
+                    </tr>
+                    
+                    <tr>
+                      <td scope="row" title="번호" class="first ">2</td>
+                      <td scope="row" title="제목" class="board_title1">
+                      <div class="title_text">어떤 일들을 할 수 있나요?</div></td>	
+                      <td scope="row" title="조회수">23</td>
+                    </tr>
+                    
+                    <tr>
+                      <td scope="row" title="번호" class="first ">3</td>
+                      <td scope="row" title="제목" class="board_title1">
+                      <div class="title_text">회원가입이 필수가 아닌가요?</div></td>	
+                      <td scope="row" title="조회수">68</td>
+                    </tr>
+                    
+                    <tr>
+                      <td scope="row" title="번호" class="first ">4</td>
+                      <td scope="row" title="제목" class="board_title1"><div class="title_text">어떻게 신고를 해요?</div></td>	
+                      <td scope="row" title="조회수">92</td>
+                    </tr>
+
+                    <tr>
+                      <td scope="row" title="번호" class="first ">5</td>
+                      <td scope="row" title="제목" class="board_title1"><div class="title_text">글을 쓰고 기사님이 오실 때까지 기다려야 하나요?</div></td>	
+                      <td scope="row" title="조회수">789</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div id="paging" class="paging"> 
+                <a href="#none" class="on"><strong>1</strong></a><a href="#none" onclick="fn_notice_link_page(2); " >2</a><a href="#none" onclick="fn_notice_link_page(3); " >3</a><a href="#none" onclick="fn_notice_link_page(4); " >4</a><a href="#none" onclick="fn_notice_link_page(5); " >5</a>  
+              </div>
+
+            <br>
+          </div>
+        </div> 
+      </div>
+</body>
+</html>
