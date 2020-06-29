@@ -1,0 +1,38 @@
+.grid{
+    width: 100%;
+    height: 80%;
+}
+
+td{
+    height: 200px;
+    color: whitesmoke;
+    font-size: 36px;
+}
+
+.grid-1{
+    background: whitesmoke; border: 1px white solid;
+}
+
+.grid-2{
+    background: #595959; border: 1px white solid;
+}
+
+.grid-3{
+    background: #8CD790; border: 1px white solid;
+    
+}
+
+.grid-3:hover{
+    background: #008256;
+    font-weight: 800;
+}
+
+a:link{
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+a:visited{
+    color: whitesmoke;
+    text-decoration: none;
+}
