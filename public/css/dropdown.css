@@ -1,0 +1,38 @@
+#main-menu {
+    background-color: whitesmoke;
+}
+
+.list-group-item {
+    background-color: whitesmoke;
+    border: #8CD790;
+}
+
+a.list-group-item{
+    color: black;
+}
+
+a.list-group-item:hover,
+a.list-group-item:focus {
+    background-color: #8CD790;
+}
+
+a.list-group-item.active,
+a.list-group-item.active:hover,
+a.list-group-item.active:focus {
+    color: #285943;
+    background-color: #8CD790;
+    border: none;
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 0;
+}
+
+.list-group-level1 .list-group-item .list-group-item-1{
+    padding-left:30px;
+}
+
+.list-group-level2 .list-group-item .list-group-item-1{
+    padding-left:60px;
+}

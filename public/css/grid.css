@@ -1,0 +1,30 @@
+.container{
+    width: 70%;
+    height: 80%;
+}
+
+.row{
+    height: 33%;
+}
+
+.col-md-1{
+    background: whitesmoke; border: 1px white solid;
+}
+
+.col-md-2{
+    background: #8CD790; border: 1px white solid;
+}
+
+.col-md-2:hover{
+    background: #008256;
+    color: whitesmoke
+}
+
+.col-xs-12{
+    background: whitesmoke; border: 1px white solid;
+}
+
+.in-box-text{
+    position: absolute; left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%);
+    color: #008256;
+}
