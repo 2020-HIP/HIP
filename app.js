@@ -19,23 +19,17 @@ var database;
 // database
 function connectDB() {
   var databaseUrl = 'mongodb://localhost:27017/local';
-  MongoClient.connect(databaseUrl, function(err, db) {
+  MongoClient.connect(databaseUrl, function (err, db) {
     if (err) throw err;
     console.log('데이터베이스에 연결되었습니다. : ' + databaseUrl);
     database = db.db('local'); /*database명을 명시했다.*/
   });
 }
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('서버가 시작되었습니다. 포트 : ' + app.get('port'));
-  connectDB();
-});
-
 // view engine setup
-app.set('views', path.join(__dirname,'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
-app.set('view engine','html');
-
+app.set('view engine', 'html');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -48,12 +42,12 @@ app.use('/users', usersRouter);
 app.use('/report', reportRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
