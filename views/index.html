@@ -225,8 +225,12 @@
 					</div>
 					<div class="col-md-9">
 					  <div id="page-1" class= "page bg-light one">
-					  	<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 고장 현황 </h2>
-					  	<p> 현재 고장이 접수 된 실습실 현황을 확인해 보세요 </p>
+							<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 고장 현황 </h2>
+							<% if (docs.length > 0) { for(let i = 0; i < docs.length; i++){%> 
+								<p> <%=docs[i].title%> <%=docs[i].date%> </p>
+							<% }} else { %>
+							<p> 현재 고장이 접수 된 실습실 현황을 확인해 보세요 </p>
+							<% } %>
 					  </div>
 					  <div id="page-2" class= "page bg-light two">
 						<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 수리 현황 </h2>
