@@ -1,14 +1,35 @@
 var createError = require('http-errors');
 var express = require('express');
+var http = require('http');
 var path = require('path');
+var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var reportRouter = require('./routes/report');
 
 var app = express();
+
+var MongoClient = require('mongodb').MongoClient;
+var database;
+
+// database
+function connectDB() {
+  var databaseUrl = 'mongodb://localhost:27017/local';
+  MongoClient.connect(databaseUrl, function(err, db) {
+    if (err) throw err;
+    console.log('데이터베이스에 연결되었습니다. : ' + databaseUrl);
+    database = db.db('local'); /*database명을 명시했다.*/
+  });
+}
+
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('서버가 시작되었습니다. 포트 : ' + app.get('port'));
+  connectDB();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname,'views'));
