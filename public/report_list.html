@@ -9,8 +9,8 @@
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-	<!-- CSS -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+  <!-- CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -22,33 +22,37 @@
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/dropdown.css">
 
-	<!-- FAVICON -->
-	<link rel="icon" href="images/favicon/favicon.svg" type="image/x-icon">
-	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-	<link rel="manifest" href="images/favicon/site.webmanifest">
-	<link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="msapplication-TileColor" content="#da532c">
-	<meta name="theme-color" content="#ffffff">
-  
+  <!-- FAVICON -->
+  <link rel="icon" href="images/favicon/favicon.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="index.html" style="color: #263b5e;"> HIP <span>.</span></a>
-      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+        data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav nav ml-auto">
           <li class="nav-item"><a href="index.html" class="nav-link"><span> 홈 </span></a></li>
-          <li class="nav-item"><a href="index.html #chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a></li>
+          <li class="nav-item"><a href="index.html #chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a>
+          </li>
           <li class="nav-item"><a href="report.html" class="nav-link"><span> 고장 신고 </span></a></li>
-          <li class="nav-item"><a href="#notice-section #page-1" class="nav-link"><span> 공지사항 </span></a></li>
-          <li class="nav-item"><a href="#notice-section #page-2" class="nav-link"><span> 자주 하는 질문 </span></a></li>
+          <li class="nav-item"><a href="notice.html #notice-section #page-1" class="nav-link"><span> 공지사항 </span></a>
+          </li>
+          <li class="nav-item"><a href="notice.html #notice-section #page-2" class="nav-link"><span> 자주 하는 질문
+              </span></a></li>
         </ul>
       </div>
     </div>
@@ -58,11 +62,12 @@
     <div class="container">
       <div class="row justify-content-center py-5 mt-5">
         <div class="col-md-12 heading-section text-center ftco-animate">
-          <h2 class="mb-4" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 50px;"> 신고하기 </h2>
+          <h2 class="mb-4" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 50px;"> 신고 현황
+          </h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-2 mb-4">
+      <div class="row" width=100%>
+        <div class="col-md-3 mb-4">
           <div id="main-menu" class="list-group">
             <a href="#sub-menu" class="list-group-item" data-toggle="collapse" data-parent="#main-menu">본관<span
                 class="caret"></span></a>
@@ -107,48 +112,115 @@
             </div>
           </div>
         </div>
-        <div class="col-md-10" style="float: right;">
-            <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 고장 신고 </h2>
-            <p> (현재 선택한 장소 이름)에 도움이 필요한 컴퓨터가 있나요? </p>
-            <table class="table" style="vertical-align: middle;">
-                <form>
-                  <tr>
-                    <td bgcolor="#deecdd">신고 접수 장소</td>
-                    <td>NCS응용프로그래밍실습실-5</td>
-                    <td bgcolor="#deecdd">이름</td>
-                    <td><input type="text" id="user_name" maxlength="4" size="4"></td>
-                    <td bgcolor="#deecdd">비밀번호</td>
-                    <td><input type="password" id="user_pw" maxlength="10" size="10"></td>
-                  </tr>
-                  <tr>
-                    <td bgcolor="#deecdd">신고 접수 사유</td>
-                    <td colspan=3>
-                        <input type="radio" id="wrong_report" value="none_program"> 프로그램 미설치&nbsp;
-                        <input type="radio" id="wrong_report" value="wrong_computer"> 컴퓨터 이상&nbsp;
-                        <input type="radio" id="wrong_report" value="wrong_ect"> 기타
-                    </td>
-                    <td bgcolor="#deecdd">컴퓨터 번호</td>
-                    <td><input type="text" id="computer_number" maxlength="2" size=2></td>
-                  </tr>
-                  <tr>
-                    <td bgcolor="#deecdd">제목</td>
-                    <td colspan=5><input type="text" id="report_title" size=40></td>
-                  </tr>
-                  <tr height="200px">
-                    <td bgcolor="#deecdd">내용</td>
-                    <td colspan="5"><input type="text" id="report_contents" size="90%" style="height: 200px; text-align: left top;"></td>
-                  </tr>
-                  <tr align="right">
-                    <td colspan="6">
-                        <input type="submit" class="board-button" value="글 등록하기"></button>
-                        <input type="reset" class="board-button" value="다시 쓰기"></button>
-                        <input type="button" class="board-button" value="글 목록으로" onclick="location.href='report_list.html'"></a>
-                    </td>
-                </tr>
+      </div>
+
+      <div class="col-md-9" style="float: right;">
+        <!-- PAGE 1 !-->
+        <div id="" class="page bg-light one">
+          <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 신고 현황
+          </h2>
+          <p> (현재 선택한 장소 이름)의 고장 현황을 파악해보세요. </p>
+          <div class="total_search">
+            <form name="commandMap" id="commandMap" method="post" action="#none" onsubmit="return false;">
+              <fieldset>
+                <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="신고 현황 검색 키워드" class="input5 korean" value="" />
+                <button type="button" class="btn_07" id="reportMain" title="">검색</button>
+              </fieldset>
             </form>
+            <div class="find_listBox">
+              <table class="type01" summary="컴퓨터 번호, 작성일, 제목, 작성자, 댓글 수, 해결 여부">
+                <colgroup>
+                  <col style="width:10%">
+                  <col style="width:10%">
+                  <col style="width:30%">
+                  <col style="width:15%">
+                  <col style="width:15%">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col" class="first">컴퓨터 번호</th>
+                    <th scope="col">작성일</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">댓글 수</th>
+                    <th scope="col">해결여부</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <!-- 테이블 반복 구간 시작 -->
+
+                  <tr>
+                    <td scope="row" title="컴퓨터 번호" class="first">7</td>
+                    <td scope="row" title="작성일">2020-XX-XX</td>
+                    <td scope="row" title="제목" class="board_title1">
+                      <div class="title_text">컴이 안 켜져요</div>
+                    </td>
+                    <td scope="row" title="작성자">하나둘</td>
+                    <td scope="row" title="댓글 수">0</td>
+                    <td scope="row" title="해결 여부">X</td>
+                  </tr>
+
+                  <tr>
+                    <td scope="row" title="컴퓨터 번호" class="first">18</td>
+                    <td scope="row" title="작성일">2020-XX-XX</td>
+                    <td scope="row" title="제목" class="board_title1">
+                      <div class="title_text">인터넷이 안 됨</div>
+                    </td>
+                    <td scope="row" title="작성자">곽필두</td>
+                    <td scope="row" title="댓글 수">10</td>
+                    <td scope="row" title="해결 여부">O</td>
+                  </tr>
+
+                  <tr href>
+                    <td scope="row" title="컴퓨터 번호" class="first ">8</td>
+                    <td scope="row" title="작성일">2020-XX-XX</td>
+                    <td scope="row" title="제목" class="board_title1">
+                      <div class="title_text">포토샵이 없어요</div>
+                    </td>
+                    <td scope="row" title="작성자">김병철</td>
+                    <td scope="row" title="댓글 수">9</td>
+                    <td scope="row" title="해결 여부">O</td>
+                  </tr>
+
+                  <tr>
+                    <td scope="row" title="컴퓨터 번호" class="first ">4</td>
+                    <td scope="row" title="작성일">2020-XX-XX</td>
+                    <td scope="row" title="제목" class="board_title1">
+                      <div class="title_text">컴퓨터가 멈췄어요</div>
+                    </td>
+                    <td scope="row" title="작성자">이덩해</td>
+                    <td scope="row" title="댓글 수">12</td>
+                    <td scope="row" title="해결 여부">O</td>
+                  </tr>
+
+                  <tr>
+                    <td scope="row" title="컴퓨터 번호" class="first">9</td>
+                    <td scope="row" title="작성일">2020-XX-XX</td>
+                    <td scope="row" title="제목" class="board_title1">
+                      <div class="title_text">뭔가 이상해요</div>
+                    </td>
+                    <td scope="row" title="작성자">김갱수</td>
+                    <td scope="row" title="댓글 수">3</td>
+                    <td scope="row" title="해결 여부">O</td>
+                  </tr>
+
+                </tbody>
               </table>
+            </div>
+            <form align="right">
+              <input type="button" class="board-button" value="신고하기" onclick="location.href='school-map.html'"></a>
+            </form>
+            <div id="paging" class="paging">
+              <a href="#none" class="on"><strong>1</strong></a><a href="#none"
+                onclick="fn_notice_link_page(2); ">2</a><a href="#none" onclick="fn_notice_link_page(3); ">3</a><a
+                href="#none" onclick="fn_notice_link_page(4); ">4</a><a href="#none"
+                onclick="fn_notice_link_page(5); ">5</a>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -159,16 +231,19 @@
         container.addClass('active');
         evt.preventDefault();
       } else
-      if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
-        container.removeClass('active');
-        // clear input
-        container.find('.search-input').val('');
-      }
+        if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
+          container.removeClass('active');
+          // clear input
+          container.find('.search-input').val('');
+        }
     }
   </script>
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" /></svg></div>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -183,4 +258,5 @@
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
