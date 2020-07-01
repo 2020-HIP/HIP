@@ -3,13 +3,3 @@
 html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td, textarea, pre, input, select, span {
     margin:0;padding:0; font-family: 'Noto Sans KR', sans-serif;
     } 
-    em {font-style:normal;}
-    ul, ol, li{list-style: none;}
-    fieldset, img {border: none}
-    body a {color:#444;text-decoration: none;}
-    body a:hover, body a:active,body a:focus {text-decoration: none;}
-    pre {padding-top: 5px;}
-    table {margin:0;padding:0;border-spacing:0;border-collapse:collapse;border:0;}
-    td {text-align:left;}
-    caption,legend{font-size:0;}
-    button{border:none;cursor:pointer;overflow:visible;white-space: nowrap;}
