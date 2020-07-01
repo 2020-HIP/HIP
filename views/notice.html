@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="css/board.css">
   <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/main.css">
 
 	<!-- FAVICON -->
 	<link rel="icon" href="images/favicon/favicon.svg" type="image/x-icon">
@@ -85,67 +86,64 @@
               </form>
               <br>
               <div class="find_listBox">
-                <table class="type01" summary="번호, 제목, 작성일, 조회">
+
+                <table class="table" summary="번호, 제목, 작성일, 조회" align="center">
                   <colgroup>
-                    <col style="width:50px">
-                    <col style="width:125px">
+                    <col style="width:100px">
+                    <col style="width:450px">
             
-                    <col style="width:65px">
-                    <col style="width:60px">
+                    <col style="width:130px">
+                    <col style="width:120px">
                   </colgroup>
                   <thead>
                     <tr>
-                    <th scope="col" class="first">번호</th>
-                    <th scope="col">제목</th>
+                    <th scope="col" class="first ">번호</th>
+                    <th scope="col" class="board_title1">제목</th>
                     <th scope="col">작성일</th>                      
                     <th scope="col">조회</th>                    
                     </tr>
                   </thead>
                   <tbody>
-
-            <!-- 테이블 반복 구간 시작 -->
-                    
                     <tr>
                       <td scope="row" title="번호" class="first ">1</td>
-                      <td scope="row" title="제목" class="board_title1">
-                      <div class="title_text">축제로 인한 수리 지연 안내</div></td>
+                      <td scope="row" title="제목" class="board_title1">축제로 인한 수리 지연 안내</td>
                       <td scope="row" title="작성일">20XX-XX-XX</td>
                       <td scope="row" title="조회수">3</td>
                     </tr>
                     
                     <tr>
                       <td scope="row" title="번호" class="first ">2</td>
-                      <td scope="row" title="제목" class="board_title1">
-                      <div class="title_text">프로그램 관련 재공지 안내</div></td>   
+                      <td scope="row" title="제목" class="board_title1">프로그램 관련 재공지</td>   
                       <td scope="row" title="작성일">20XX-XX-XX</td>
                       <td scope="row" title="조회수">23</td>
                     </tr>
                     
                     <tr>
                       <td scope="row" title="번호" class="first ">3</td>
-                      <td scope="row" title="제목" class="board_title1">
-                      <div class="title_text">습득물 관련 공지</div></td>   
+                      <td scope="row" title="제목" class="board_title1">습득물 관련 공지</td>   
                       <td scope="row" title="작성일">20XX-XX-XX</td>
                       <td scope="row" title="조회수">68</td>
                     </tr>
                     
                     <tr>
                       <td scope="row" title="번호" class="first ">4</td>
-                      <td scope="row" title="제목" class="board_title1"><div class="title_text">외부 세미나 관련 공지</div></td>   
+                      <td scope="row" title="제목" class="board_title1">외부 세미나 관련 공지</td>   
                       <td scope="row" title="작성일">20XX-XX-XX</td>
                       <td scope="row" title="조회수">92</td>
                     </tr>
 
                     <tr>
                       <td scope="row" title="번호" class="first ">5</td>
-                      <td scope="row" title="제목" class="board_title1"><div class="title_text">화이트보드에 쓸모없는 낙서하지 마세요.</div></td>   
+                      <td scope="row" title="제목" class="board_title1">화이트보드에 쓸모없는 낙서하지 마세요.</td>   
                       <td scope="row" title="작성일">20XX-XX-XX</td>
                       <td scope="row" title="조회수">789</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-
+              <form align="right">
+                <input type="button" class="board-button" value="글 작성" onclick="location.href='notice_form.html'"></a>
+              </form>
               <div id="paging" class="paging"> 
                 <a href="#none" class="on"><strong>1</strong></a><a href="#none" onclick="fn_notice_link_page(2); " >2</a><a href="#none" onclick="fn_notice_link_page(3); " >3</a><a href="#none" onclick="fn_notice_link_page(4); " >4</a><a href="#none" onclick="fn_notice_link_page(5); " >5</a>  
               </div>
@@ -171,7 +169,7 @@
             <!-- 게시판 -->
     
             <div class="find_listBox">
-              <table class="type01" summary="번호, 제목, 조회">
+              <table class="table" summary="번호, 제목, 조회">
                 <colgroup>
                   <col style="width:100px">
                   <col style="width:450px">
@@ -232,6 +230,9 @@
                 </tbody>
               </table>
          </div>
+         <form align="right">
+          <input type="button" class="board-button" value="질문 추가" onclick="location.href='question_form.html'"></a>
+        </form>
          <div id="paging" class="paging">
           <a href="#none" class="on"><strong>1</strong></a><a href="#none" onclick="fn_notice_link_page(2); ">2</a><a
             href="#none" onclick="fn_notice_link_page(3); ">3</a><a href="#none"
