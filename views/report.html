@@ -63,7 +63,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-2 mb-4">
+        <div class="col-md-3 mb-4">
+
           <div id="main-menu" class="list-group">
             <a href="#sub-menu" class="list-group-item" data-toggle="collapse" data-parent="#main-menu">본관<span
                 class="caret"></span></a>
@@ -107,27 +108,57 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-10" style="float: right;">
+
+          <div id="main-menu2" class="list-group">
+              <a href="#sub-menu2" class="list-group-item" data-toggle="collapse" data-parent="#main-menu2">기타<span
+                  class="caret"></span></a>
+              <div class="collapse list-group-level1" id="sub-menu2">
+                <a href="#sub-sub-menu2" class="list-group-item" data-toggle="collapse" data-parent="#sub-menu2">본관 3층<span
+                  class="caret"></span></a>
+              <div class="collapse list-group-level2" id="sub-sub-menu2">
+                <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2">2학년 5반</a>
+                <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2">2학년 6반</a>
+              </div>
+                <a href="#sub-sub-menu2-1" class="list-group-item" data-toggle="collapse" data-parent="#sub-menu2">본관 4층<span
+                    class="caret"></span></a>
+                <div class="collapse list-group-level2" id="sub-sub-menu2-1">
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">1학년 1반</a>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">1학년 2반</a>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">1학년 3반</a>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">1학년 4반</a>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">1학년 5반</a>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">1학년 6반</a>
+                  <hr>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">2학년 1반</a>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">2학년 2반</a>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">2학년 3반</a>
+                  <a href="report.html" class="list-group-item" data-parent="#sub-sub-menu2-1">2학년 4반</a>
+                </div>
+              </div>
+            </div>
+      </div>
+
+        
+        <div class="col-md-9" style="float: right;">
             <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 고장 신고 </h2><br>
             <p> (현재 선택한 장소 이름)에 도움이 필요한 컴퓨터가 있나요? </p><br>
-            <table class="table" style="vertical-align: middle;" width="860px">
+            <table class="table" style="vertical-align: middle;" width="900px">
                 <form>
                   <tr>
                     <td bgcolor="#deecdd" width="140px">신고 접수 장소</td>
-                    <td width="250px"><input type="text" id="wrong-place" readonly class="input-text" placeholder="3학년 4반"></td>
+                    <td width="250px"><input type="text" id="wrong-place" readonly class="input-text" placeholder="NCS응용프로그래밍개발실습실-5"></td>
                     <td bgcolor="#deecdd" width="70px">이름</td>
                     <td><input type="text" id="user_name" maxlength="4" size="4" class="input-text"></td>
-                    <td bgcolor="#deecdd" widht="180px">비밀번호</td>
+                    <td bgcolor="#deecdd" widht="200px">비밀번호</td>
                     <td><input type="password" id="user_pw" maxlength="10" size="10" class="input-text"></td>
                   </tr>
                   <tr>
                     <td colspan="6" style="font-weight: 100; color: #8CD790;">쉬운 비밀번호를 입력하면 타인의 수정, 삭제가 쉽습니다.</td>
                   </tr>
                   <tr>
-                    <td bgcolor="#deecdd">신고 접수 사유</td>
+                    <td bgcolor="#deecdd" width=50px>신고 접수 사유</td>
                     <td colspan=3>
-                        <input type="radio" name="wrong_report" value="none_program"> 프로그램 미설치&nbsp;
+                        <input type="radio" name="wrong_report" value="none_program" checked> 프로그램 미설치&nbsp;
                         <input type="radio" name="wrong_report" value="wrong_computer"> 컴퓨터 이상&nbsp;
                         <input type="radio" name="wrong_report" value="wrong_ect"> 기타
                     </td>
