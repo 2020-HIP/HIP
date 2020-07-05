@@ -147,13 +147,15 @@
         <div class="col-md-9" style="float: right;">
           <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 고장 신고
           </h2><br>
-          <p> (현재 선택한 장소 이름)에 도움이 필요한 컴퓨터가 있나요? </p><br>
+          <p> <%=place_name %>에 도움이 필요한 컴퓨터가 있나요? </p><br>
           <table class="table" style="vertical-align: middle;" width="900px">
             <form action="/report/add" method="post">
               <tr>
                 <td bgcolor="#deecdd" width="140px">신고 접수 장소</td>
-                <td width="250px"><input type="text" id="wrong-place" readonly class="input-text" name="place_id"
-                    value="NCS응용프로그래밍개발실습실-5"></td>
+                <td width="250px">
+                  <input type="text" id="wrong-place" readonly class="input-text" value="<%=place_name%>" />
+                  <input type="text" name="place_id" value="<%=place_id%>" hidden/>
+                </td>
                 <td bgcolor="#deecdd" width="70px">이름</td>
                 <td><input type="text" id="user-name" name="writer_name" maxlength="4" size="4" class="input-text"></td>
                 <td bgcolor="#deecdd" widht="200px">비밀번호</td>

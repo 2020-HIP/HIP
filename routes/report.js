@@ -13,48 +13,24 @@ function formatDate(date) {
 }
 
 router.get('/', function(req, res, next) {
-    getConn((err, db) => {
-        if (err) throw err;
-        let user = db.db('local');
-        let report = user.collection('report');
-
-        report.find().toArray((err, result) => {
-            if (err) throw err;
-            if (result.length > 0) {
-                console.log(result);
-                res.render('report_list', {result: result});
-            } else {
-                console.log('report 리스트 없음');
-                console.log(result);
-                res.render('report_list', {result: []});
-            }
-        });
-    });
-});
-
-router.get('/map', function(req, res, next) {
     res.render('school-map');
 });
 
-router.post('/map', function(req, res, next) {
-
-});
-
 router.get('/list', function(req, res, next) {
+    let place_id = req.query.place_id;
+
     getConn((err, db) => {
         if (err) throw err;
         let user = db.db('local');
         let report = user.collection('report');
 
-        report.find().toArray((err, result) => {
+        report.find({place_id: place_id}).toArray((err, result) => {
             if (err) throw err;
             if (result.length > 0) {
-                console.log(result);
-                res.render('report_list', {result: result});
+                res.render('report_list', {place_id: place_id, result: result});
             } else {
                 console.log('report 리스트 없음');
-                console.log(result);
-                res.render('report_list', {result: []});
+                res.render('report_list', {place_id: place_id, result: []});
             }
         });
     });
@@ -65,7 +41,27 @@ router.post('/list', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-    res.render('report');
+    let place_id = req.query.place_id;
+
+    getConn((err, db) => {
+        if (err) throw err;
+        let user = db.db('local');
+        let place = user.collection('place');
+
+        place.find({id: place_id}).toArray((err, result) => {
+            if (err) throw err;
+            if (result.length > 0) {
+                let place_name = result[0].name;
+                console.log("result[0].name : " + result[0].name);
+                console.log("place_name : " + place_name);
+
+                res.render('report', {place_id: place_id, place_name: place_name});
+            } else {
+                console.log('place 리스트 없음');
+                res.render('/');
+            }
+        });
+    });
 });
 
 router.post('/add', function(req, res, next) {
@@ -103,7 +99,7 @@ router.post('/add', function(req, res, next) {
             },
             (err, result) => {
                 if (err) throw err;
-                res.redirect('list');
+                res.redirect('list?place_id=' + place_id);
             }
         );
     });
