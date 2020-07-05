@@ -37,18 +37,18 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html" style="color: #263b5e;"> HIP <span>.</span></a>
+      <a class="navbar-brand" href="/" style="color: #263b5e;"> HIP <span>.</span></a>
       <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav nav ml-auto">
-          <li class="nav-item"><a href="index.html" class="nav-link"><span> 홈 </span></a></li>
-          <li class="nav-item"><a href="index.html #chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a></li>
+          <li class="nav-item"><a href="/" class="nav-link"><span> 홈 </span></a></li>
+          <li class="nav-item"><a href="/#chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a></li>
           <li class="nav-item"><a href="school-map.html" class="nav-link"><span> 고장 신고 </span></a></li>
-          <li class="nav-item"><a href="#notice-section #page-1" class="nav-link"><span> 공지사항 </span></a></li>
-          <li class="nav-item"><a href="#notice-section #page-2" class="nav-link"><span> 자주 하는 질문 </span></a></li>
+          <li class="nav-item"><a href="#page-1" class="nav-link"><span> 공지사항 </span></a></li>
+          <li class="nav-item"><a href="#page-2" class="nav-link"><span> 자주 하는 질문 </span></a></li>
         </ul>
       </div>
     </div>
@@ -142,7 +142,7 @@
                 </table>
               </div>
               <form align="right">
-                <input type="button" class="board-button" value="글 작성" onclick="location.href='notice_form.html'"></a>
+                <input type="button" class="board-button" value="글 작성" onclick="location.href='/notice/form'"></a>
               </form>
               <div id="paging" class="paging"> 
                 <a href="#none" class="on"><strong>1</strong></a><a href="#none" onclick="fn_notice_link_page(2); " >2</a><a href="#none" onclick="fn_notice_link_page(3); " >3</a><a href="#none" onclick="fn_notice_link_page(4); " >4</a><a href="#none" onclick="fn_notice_link_page(5); " >5</a>  
@@ -231,7 +231,7 @@
               </table>
          </div>
          <form align="right">
-          <input type="button" class="board-button" value="질문 추가" onclick="location.href='question_form.html'"></a>
+          <input type="button" class="board-button" value="질문 추가" onclick="location.href='/notice/question'"></a>
         </form>
          <div id="paging" class="paging">
           <a href="#none" class="on"><strong>1</strong></a><a href="#none" onclick="fn_notice_link_page(2); ">2</a><a
