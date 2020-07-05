@@ -32,6 +32,14 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/map', function(req, res, next) {
+    res.render('school-map');
+});
+
+router.post('/map', function(req, res, next) {
+
+});
+
 router.get('/list', function(req, res, next) {
     getConn((err, db) => {
         if (err) throw err;
