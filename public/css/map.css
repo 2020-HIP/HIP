@@ -1,0 +1,35 @@
+.main-3F{
+    width: 900px;
+    height: 100px;
+}
+
+.main-3F-room{
+    width: 156px;
+    border: white 1px solid;
+    margin: 5px;
+    float: left;
+}
+
+.main-4F{
+    width: 900px;
+    height: 100px;
+}
+
+.main-4F-room{
+    width: 122px;
+    border: white 1px solid;
+    margin: 5px;
+    float: left;
+}
+
+.building-button{
+    margin: 0px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.building-button:active, .building-button:hover, .building-button:visited{
+    border: none;
+    outline: none;
+}
