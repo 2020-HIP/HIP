@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+
+  <title> HIP </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+	<!-- CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/animate.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">
+  <link rel="stylesheet" href="../css/flaticon.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/search.css">
+  <link rel="stylesheet" href="../css/form.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/dropdown.css">
+  <link rel="stylesheet" href="../css/main.css">
+
+	<!-- FAVICON -->
+	<link rel="icon" href="../images/favicon/favicon.svg" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../images/favicon/site.webmanifest">
+	<link rel="mask-icon" href="../images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+  
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/" style="color: #263b5e;"> HIP <span>.</span></a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="/" class="nav-link"><span> 홈 </span></a></li>
+          <li class="nav-item"><a href="/#chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a></li>
+          <li class="nav-item"><a href="/report" class="nav-link"><span> 고장 신고 </span></a></li>
+          <li class="nav-item"><a href="/notice" class="nav-link"><span> 공지사항 </span></a></li>
+          <li class="nav-item"><a href="/notice#page-2" class="nav-link"><span> 자주 하는 질문 </span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="ftco-section ftco-no-pb ftco-no-pt" id="report-section">
+    <div class="container">
+      <div class="row justify-content-center py-5 mt-5">
+        <div class="col-md-12 heading-section text-center ftco-animate">
+          <h2 class="mb-4" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 50px;"> 자주하는 질문 작성 </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <nav id="navi">
+            <ul>
+              <li><a href="/notice #page-1"> 공지사항 </a></li>
+              <li><a href="/notice #page-2"> 자주 하는 질문 </a></li>
+              <li><a href="/notice #page-3"> 그 외 </a></li>
+            </ul>
+        </nav>
+        </div>
+        <div class="col-md-9" style="float: right;">
+          <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 공지사항 수정 </h2><br>
+          <p> 공지사항을 수정합니다. </p><br>
+          <table class="table" style="vertical-align: middle;" width="860px">
+              <form>
+                <tr>
+                  <td bgcolor="#deecdd">제목</td>
+                  <td colspan=3><input type="text" id="report-title" class="input-text" placeholder="제목을 입력하세요."><!--제목--></td>
+                  <td bgcolor="#deecdd" widht="180px">비밀번호</td>
+                  <td><input type="password" id="user-pw" maxlength="10" size="10" class="input-text" placeholder="비밀번호를 입력하세요."><!--선생님용 비밀번호--></td>
+                </tr>
+                <tr height="200px">
+                  <td bgcolor="#deecdd" style="font-family: 'Noto Sans KR', sans-serif;">내용</td>
+                  <td colspan="5"><textarea rows="10" placeholder="내용을 입력하세요" name="report-content"><!--글 내용--></textarea></td>
+                </tr>
+                <tr align="right">
+                  <td colspan="6">
+                      <input type="submit" class="form-button" id="form-save" value="글 수정하기"></button>
+                      <input type="reset" class="form-button" value="다시 쓰기"></button>
+                      <input type="button" class="form-button" value="뒤로" onclick="location.href='/notice #notice-section #page-2'"></a>
+                  </td>
+              </tr>
+          </form>
+            </table>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <script id="rendered-js">
+    function searchToggle(obj, evt) {
+      var container = $(obj).closest('.search-wrapper');
+      if (!container.hasClass('active')) {
+        container.addClass('active');
+        evt.preventDefault();
+      } else
+      if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
+        container.removeClass('active');
+        // clear input
+        container.find('.search-input').val('');
+      }
+    }
+  </script>
+
+<script>
+  $(document).ready(function(){
+    $("#form-save").click(function javascript_onclick(){
+                   
+                   //널 검사
+                   if($("#report-title").val().trim() == ""){
+                       alert("제목을 입력하세요.");
+                       $("#report-title").focus();
+                       return false;
+                   }
+                    
+                   if($("#report-content").val().trim() == ""){
+                       alert("내용을 입력하세요.");
+                       $("#report-content").focus();
+                       return false;
+                   }
+                   });
+  });
+
+</script>
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/jquery.stellar.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.magnific-popup.min.js"></script>
+  <script src="../js/jquery.animateNumber.min.js"></script>
+  <script src="../js/scrollax.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
