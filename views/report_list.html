@@ -50,9 +50,9 @@
           <li class="nav-item"><a href="/#chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a>
           </li>
           <li class="nav-item"><a href="/report" class="nav-link"><span> 고장 신고 </span></a></li>
-          <li class="nav-item"><a href="/notice#page-1" class="nav-link"><span> 공지사항 </span></a>
+          <li class="nav-item"><a href="/notice" class="nav-link"><span> 공지사항 </span></a>
           </li>
-          <li class="nav-item"><a href="/noticeg#page-2" class="nav-link"><span> 자주 하는 질문
+          <li class="nav-item"><a href="/notice#page-2" class="nav-link"><span> 자주 하는 질문
               </span></a></li>
         </ul>
       </div>
@@ -149,7 +149,7 @@
           <p> (선택한 장소)의 신고 현황을 파악해보세요. </p>
           <br>
           <div class="total_search">  
-            <form name="commandMap" id="commandMap" method="post" action="#none" onsubmit="return false;" align="center">        
+            <form name="commandMap" id="commandMap" method="post" action="#none" onsubmit="return false;" align="center">
                 <fieldset>
                     <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="신고현황 검색 키워드" class="input5 korean" value="" />
                     <button type="button" class="btn_07" id="searchMain" title="신고현황 검색">검색</button>
@@ -180,56 +180,37 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td scope="row" title="컴퓨터 번호" class="first ">7</td>
-                    <td scope="row" title="작성일">20XX-XX-XX</td>
-                    <td scope="row" title="제목" class="board_title1">김우르르롸롹기</td>
-                    <td scope="row" title="작성자">김해해</td>
-                    <td scope="row" title="댓글 수">3</td>
-                    <td scope="row" title="해결 여부">O</td>
-                  </tr>
-                  
-                  <tr>
-                    <td scope="row" title="컴퓨터 번호" class="first ">7</td>
-                    <td scope="row" title="작성일">20XX-XX-XX</td>
-                    <td scope="row" title="제목" class="board_title1">김우르르롸롹기</td>
-                    <td scope="row" title="작성자">김해해</td>
-                    <td scope="row" title="댓글 수">3</td>
-                    <td scope="row" title="해결 여부">O</td>
-                  </tr>
-                  
-                  <tr>
-                    <td scope="row" title="컴퓨터 번호" class="first ">7</td>
-                    <td scope="row" title="작성일">20XX-XX-XX</td>
-                    <td scope="row" title="제목" class="board_title1">김우르르롸롹기</td>
-                    <td scope="row" title="작성자">김해해</td>
-                    <td scope="row" title="댓글 수">3</td>
-                    <td scope="row" title="해결 여부">O</td>
-                  </tr>
-                  
-                  <tr>
-                    <td scope="row" title="컴퓨터 번호" class="first ">7</td>
-                    <td scope="row" title="작성일">20XX-XX-XX</td>
-                    <td scope="row" title="제목" class="board_title1">김우르르롸롹기</td>
-                    <td scope="row" title="작성자">김해해</td>
-                    <td scope="row" title="댓글 수">3</td>
-                    <td scope="row" title="해결 여부">O</td>
-                  </tr>
-
-                  <tr>
-                    <td scope="row" title="컴퓨터 번호" class="first ">7</td>
-                    <td scope="row" title="작성일">20XX-XX-XX</td>
-                    <td scope="row" title="제목" class="board_title1">김우르르롸롹기</td>
-                    <td scope="row" title="작성자">김해해</td>
-                    <td scope="row" title="댓글 수">3</td>
-                    <td scope="row" title="해결 여부">O</td>
-                  </tr>
-
+                  <%
+                  if (result.length > 0) {
+                    for(let i = 0; i < result.length; i++){
+                  %>
+                      <tr>
+                        <td scope="row" title="컴퓨터 번호" class="first "><%=result[i].computer_id%></td>
+                        <td scope="row" title="작성일"><%=result[i].date%></td>
+                        <td scope="row" title="제목" class="board_title1"><%=result[i].title%></td>
+                        <td scope="row" title="작성자"><%=result[i].writer_name%></td>
+                        <td scope="row" title="댓글 수"> 댓글이 없는걸? </td>
+                        <td scope="row" title="해결 여부">
+                          <% if (result[i].solution == 1) { %>
+                            O
+                          <% } else { %>
+                            X
+                          <% } %>
+                        </td>
+                      </tr>
+                  <%
+                    }
+                  } else {
+                  %>
+                      <tr>
+                        <td scope="row" class="first ">신고 내용이 없습니다</td>
+                      </tr>
+                  <% } %>
                 </tbody>
               </table>
             </div>
             <form align="right">
-              <input type="button" class="board-button" value="신고하러 가기" onclick="location.href='school_map.html'"></a>
+              <input type="button" class="board-button" value="신고하러 가기" onclick="location.href='/report/add'">
             </form>
             <div id="paging" class="paging"> 
               <a href="#none" class="on"><strong>1</strong></a><a href="#none" onclick="fn_notice_link_page(2); " >2</a><a href="#none" onclick="fn_notice_link_page(3); " >3</a><a href="#none" onclick="fn_notice_link_page(4); " >4</a><a href="#none" onclick="fn_notice_link_page(5); " >5</a>  
