@@ -5,6 +5,10 @@
   <title> HIP </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -77,17 +81,17 @@
               <form method="POST" action="/notice/form">
                 <tr>
                   <td bgcolor="#deecdd">제목</td>
-                  <td colspan=3><input type="text" name="report_title" id="report_title" class="input-text" placeholder="제목을 입력하세요."></td>
+                  <td colspan=3><input type="text" name="report-title" id="report-title" class="input-text" placeholder="제목을 입력하세요."></td>
                   <td bgcolor="#deecdd" widht="180px">비밀번호</td>
-                  <td><input type="password" name="user_pw" id="user_pw" maxlength="10" size="10" class="input-text" placeholder="선생님용 비밀번호를 입력하세요."></td>
+                  <td><input type="password" name="user-pw" id="user-pw" maxlength="10" size="10" class="input-text" placeholder="선생님용 비밀번호를 입력하세요."></td>
                 </tr>
                 <tr height="200px">
                   <td bgcolor="#deecdd" style="font-family: 'Noto Sans KR', sans-serif;">내용</td>
-                  <td colspan="5"><textarea rows="10" placeholder="내용을 입력하세요" name="report_content"></textarea></td>
+                  <td colspan="5"><textarea rows="10" placeholder="내용을 입력하세요" name="report-content" id="report-content"></textarea></td>
                 </tr>
                 <tr align="right">
                   <td colspan="6">
-                      <input type="submit" class="form-button" value="글 등록하기"></button>
+                      <input type="submit" id="form-save" name="form-save" class="form-button" value="글 등록하기"></button>
                       <input type="reset" class="form-button" value="다시 쓰기"></button>
                       <input type="button" class="form-button" value="뒤로" onclick="location.href='/notice'"></a>
                   </td>
@@ -112,6 +116,33 @@
         container.find('.search-input').val('');
       }
     }
+  </script>
+
+  <script>
+    $(document).ready(function(){
+      $("#form-save").click(function javascript_onclick(){
+                     
+                     //널 검사
+                     if($("#report-title").val().trim() == ""){
+                         alert("제목을 입력하세요.");
+                         $("#report-title").focus();
+                         return false;
+                     }
+                      
+                     if($("#user-pw").val().trim() == ""){
+                         alert("선생님용 비밀번호를 입력하세요.");
+                         $("#reply_password").focus();
+                         return false;
+                     }
+                      
+                     if($("#report-content").val().trim() == ""){
+                         alert("내용을 입력하세요.");
+                         $("#report-content").focus();
+                         return false;
+                     }
+                     });
+    });
+	
   </script>
 
   <!-- loader -->
