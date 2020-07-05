@@ -76,12 +76,12 @@
           <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 자주하는 질문 작성 </h2><br>
           <p> 선생님용 비밀번호가 있을 경우에만 자주하는 질문을 작성할 수 있습니다. </p><br>
           <table class="table" style="vertical-align: middle;" width="860px">
-              <form>
+              <form method="POST" action="/notice/question">
                 <tr>
                   <td bgcolor="#deecdd">제목</td>
-                  <td colspan=3><input type="text" id="report_title" class="input-text" placeholder="제목을 입력하세요."></td>
+                  <td colspan=3><input type="text" name="report_title" id="report_title" class="input-text" placeholder="제목을 입력하세요."></td>
                   <td bgcolor="#deecdd" widht="180px">비밀번호</td>
-                  <td><input type="password" id="user_pw" maxlength="10" size="10" class="input-text" placeholder="선생님용 비밀번호를 입력하세요."></td>
+                  <td><input type="password" name="user_pw" id="user_pw" maxlength="10" size="10" class="input-text" placeholder="선생님용 비밀번호를 입력하세요."></td>
                 </tr>
                 <tr height="200px">
                   <td bgcolor="#deecdd" style="font-family: 'Noto Sans KR', sans-serif;">내용</td>
@@ -121,8 +121,8 @@
 
   <script src="../js/jquery.min.js"></script>
   <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
   <script src="../js/jquery.easing.1.3.js"></script>
   <script src="../js/jquery.waypoints.min.js"></script>
   <script src="../js/jquery.stellar.min.js"></script>
