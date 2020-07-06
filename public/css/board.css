@@ -1,10 +1,6 @@
-
-
 .paging{text-align:center;margin:20px 0;font-size:14px;height:24px;margin-bottom:50px;}
 .paging a{display:inline-block;vertical-align:middle;padding:0 8px;color:#008256;}
 .paging a.on{font-size:14px;font-weight:bold;color:#008256;text-decoration:underline;}
-
-
 
 .board-button{
     background-color: white;
@@ -23,21 +19,20 @@
     height: 20px;
 }
 
-.table {width:760px; text-align: center;}
-.table thead tr{height:50px;background:#deecdd;color:#285943;font-size:15px;border-top:3px solid #008256;border-bottom:1px solid #deecdd;}
-.table tbody{background-color: white;}
-.table tbody tr{height:40px;border-bottom:1px solid #eeeff1;font-size:13px;}
-.table tbody td {vertical-align:middle;text-align:center;color:#333;}
-.table tbody td.board_title1{vertical-align:middle;text-align:left;padding-left:10px;}
-.table tbody td.phone_kind{vertical-align:middle;text-align:left;padding-left:20px;}
-.table tbody td a{vertical-align:middle;color:#333;}
-.table:after{content:""; display:block;clear:both;}
 .paging{text-align:center;margin:20px 0;font-size:14px;height:24px;margin-bottom:50px;}
 .paging a{display:inline-block;vertical-align:middle;padding:0 8px;}
-.paging a.on{font-size:14px;font-weight:bold;color:#2d6bba;text-decoration:underline;}
+.paging a.on{font-size:14px;font-weight:bold;color:#008256;text-decoration:underline;}
 td.board_title1 {white-space:nowrap;overflow:hidden; text-overflow:ellipsis;-o-text-overflow:ellipsis;-ms-text-overflow:ellipsis;table-layout:fixed;}
 
-.title_text{width:300px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.title_text{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 
 .title_text a img{padding-left:5px;vertical-align:middle;padding-bottom:1px;}
 .table tbody tr th{text-align:left;padding-left:5%;}
+
+.table thead tr{background:#deecdd;color:#285943;font-size:15px;border-top:3px solid #008256;border-bottom:1px solid #deecdd;text-align: center;}
+.table tbody td{text-align: center; background-color: white;}
+
+input:focus, button:focus{
+    border: 0;
+    outline: 0;
+}

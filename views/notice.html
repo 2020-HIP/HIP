@@ -6,6 +6,11 @@
   <title> HIP </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -80,20 +85,22 @@
             <div class="total_search">  
               <form name="commandMap" id="commandMap" method="post" action="#none" onsubmit="return false;" align="center">        
                   <fieldset>
-                      <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="공지사항 검색 키워드" class="input5 korean" value="" />
-                      <button type="button" class="btn_07" id="searchMain" title="공지사항 검색">검색</button>
+                      <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="공지사항 검색 키워드" class="input5 korean" value="" readonly/>
+                      <button type="button" class="btn_07" id="searchNotice" title="공지사항 검색">검색</button>
                   </fieldset>                         
               </form>
               <br>
               <div class="find_listBox">
 
+                <div class="table-responsive">
                 <table class="table" summary="번호, 제목, 작성일, 조회" align="center">
                   <colgroup>
-                    <col style="width:100px">
-                    <col style="width:450px">
+                    <col style="width:10%">
+                    <col style="width:45%">
             
-                    <col style="width:130px">
-                    <col style="width:120px">
+
+                    <col style="width:20%">
+                    <col style="width:15%">
                   </colgroup>
                   <thead>
                     <tr>
@@ -124,6 +131,7 @@
                   </tbody>
                 </table>
               </div>
+              </div>
               <form align="right">
                 <input type="button" class="board-button" value="글 작성" onclick="location.href='/notice/notice'"></a>
               </form>
@@ -148,8 +156,8 @@
             <div class="total_search">
               <form name="commandMap" id="commandMap" method="post" action="#none" onsubmit="return false;" align="center">
                 <fieldset>
-                  <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="질문 검색 키워드" class="input5 korean" value="" />
-                  <button type="button" class="btn_07" id="searchMain" title="질문 검색">검색</button>
+                  <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="질문 검색 키워드" class="input5 korean" value="" readonly/>
+                  <button type="button" class="btn_07" id="searchQuestion" title="질문 검색">검색</button>
                 </fieldset>
               </form>
               <br>
@@ -160,11 +168,10 @@
             <div class="find_listBox">
               <table class="table" summary="번호, 제목, 조회">
                 <colgroup>
-                  <col style="width:100px">
-                  <col style="width:450px">
+                  <col style="width:25%">
+                  <col style="width:50%">
     
-                  <col style="width:130px">
-                  <col style="width:120px">
+                  <col style="width:25%">
                 </colgroup>
                 <thead>
                   <tr>
@@ -230,6 +237,16 @@
         container.find('.search-input').val('');
       }
     }
+  </script>
+  <script>
+    $(document).ready(function(){
+      $("#searchNotice").click(function javascript_onclick(){
+        alert("검색할 수 없습니다.")
+      });
+      $("#searchQuestion").click(function javascript_onclick(){
+        alert("검색할 수 없습니다.")
+      });
+    });
   </script>
 
   <!-- loader -->
