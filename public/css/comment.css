@@ -1,0 +1,32 @@
+.report-comment{
+    width: 860px;
+    float: left;
+}
+
+.user-info-comment{
+    width: 350px;
+    float: left;
+}
+
+.write-report-comment{
+    width: 900px;
+    margin-right: 5px;
+}
+
+.comment-button{
+    width: 45px;
+    height: 65px;
+    background-color: white;
+    border: #deecdd 1px solid;
+}
+
+.comment-button:hover{
+    width: 45px;
+    height: 65px;
+    background-color: #8CD790;
+    color: white;
+}
+
+input{
+    border:  #c1dfc4 1px solid;
+}

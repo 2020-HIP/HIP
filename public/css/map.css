@@ -22,6 +22,18 @@
     float: left;
 }
 
+.third-building{
+    width: 900px;
+    height: 100px;
+}
+
+.third-building-room{
+    width: 174px;
+    border: white 1px solid;
+    margin: 5px;
+    float: left;
+}
+
 .building-button{
     margin: 0px;
     background-color: transparent;
