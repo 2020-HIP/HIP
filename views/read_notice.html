@@ -77,7 +77,7 @@
             <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 공지 확인하기 </h2><br>
             <p> HIP의 자주 묻는 질문들을 모아두었습니다. </p><br>
             <table class="table" style="vertical-align: middle;" width="900px">
-                <form>
+                <form method="POST" action="/notice/notice_list/delete/<%= notice[0].num %>">
                   <tr>
                     <td bgcolor="#deecdd">제목</td>
                     <td colspan=3><%= notice[0].title %></td>
@@ -90,8 +90,8 @@
                   </tr>
                   <tr align="right">
                     <td colspan="6">
-                        <input type="button" class="form-button" value="수정하기"></button>
-                        <input type="button" class="form-button" value="삭제하기"></button>
+                        <input type="button" class="form-button" value="수정하기" onclick="location.href='/notice/notice_list/update/<%= notice[0].num %>'"></button>
+                        <input type="submit" class="form-button" value="삭제하기"></button>
                         <input type="button" class="form-button" value="글 목록으로" onclick="location.href='/notice/1/1'"></a>
                     </td>
                 </tr>
