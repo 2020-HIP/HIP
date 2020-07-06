@@ -57,11 +57,35 @@ router.get('/:notice_page/:question_page', function (req, res, next) {
   });
 });
 
-router.get('/form', (req, res) => {
+router.get('/notice', (req, res) => {
   res.render('notice_form');
 });
 
-router.post('/form', (req, res) => {
+router.post('/notice', (req, res, next) => {
+  getConn((err, db) => {
+    if (err) throw err;
+    var user = db.db('local');
+    var notice = user.collection('notice');
+
+    notice.find({}).toArray((err, notices) => {
+      if (err) throw err;
+      console.log(notices);
+      console.log(notices.length - 1);
+      let last_notice = notices.length - 1;
+      console.log(notices[last_notice]);
+      if (notices.length - 1 < 0) {
+        req.num = 0;
+      } else {
+        req.num = notices[last_notice].num + 1;
+      }
+
+      next();
+    });
+  });
+});
+
+router.post('/notice', (req, res) => {
+  let num = req.num;
   let title = req.query.report_title || req.body.report_title;
   let password = req.query.user_pw || req.body.user_pw;
   let content = req.query.report_content || req.body.report_content;
@@ -74,7 +98,7 @@ router.post('/form', (req, res) => {
     var notice = user.collection('notice');
 
     notice.insertOne(
-      { title: title, content: content, date: date, count: count },
+      { num: num, title: title, content: content, date: date, count: count },
       (err, result) => {
         if (err) throw err;
         res.redirect('/notice/1/1');
@@ -87,7 +111,29 @@ router.get('/question', (req, res) => {
   res.render('question_form');
 });
 
+router.post('/question', (req, res, next) => {
+  getConn((err, db) => {
+    if (err) throw err;
+    var user = db.db('local');
+    var question = user.collection('question');
+
+    question.find({}).toArray((err, questions) => {
+      if (err) throw err;
+      console.log(questions.length - 1);
+      let last_question = questions.length - 1;
+      if (questions.length - 1 < 0) {
+        req.num = 0;
+      } else {
+        req.num = questions[last_question].num + 1;
+      }
+
+      next();
+    });
+  });
+});
+
 router.post('/question', (req, res) => {
+  let num = req.num;
   let title = req.query.report_title || req.body.report_title;
   let password = req.query.user_pw || req.body.user_pw;
   let content = req.query.report_content || req.body.report_content;
@@ -99,12 +145,52 @@ router.post('/question', (req, res) => {
     var question = user.collection('question');
 
     question.insertOne(
-      { title: title, content: content, count: count },
+      { num: num, title: title, content: content, count: count },
       (err, result) => {
         if (err) throw err;
         res.redirect('/notice/1/1');
       }
     );
+  });
+});
+
+router.get('/notice_list/read/:notice_num', (req, res, next) => {
+  let notice_num = req.params.notice_num;
+
+  console.log(parseInt(notice_num));
+
+  getConn((err, db) => {
+    if (err) throw err;
+    var user = db.db('local');
+    var notice = user.collection('notice');
+
+    notice.updateOne(
+      { num: parseInt(notice_num) },
+      { $inc: { count: 1 } },
+      (err, result) => {
+        if (err) throw err;
+        console.log(result);
+        next();
+      }
+    );
+  });
+});
+
+router.get('/notice_list/read/:notice_num', (req, res, next) => {
+  let notice_num = req.params.notice_num;
+
+  console.log(parseInt(notice_num));
+
+  getConn((err, db) => {
+    if (err) throw err;
+    var user = db.db('local');
+    var notice = user.collection('notice');
+
+    notice.find({ num: parseInt(notice_num) }).toArray((err, notice) => {
+      if (err) throw err;
+      console.log(notice);
+      res.render('read_notice', { notice: notice });
+    });
   });
 });
 

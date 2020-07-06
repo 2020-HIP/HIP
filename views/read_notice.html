@@ -11,25 +11,25 @@
 
 	<!-- CSS -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/animate.css">
-  <link rel="stylesheet" href="../css/owl.carousel.min.css">
-  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../css/magnific-popup.css">
-  <link rel="stylesheet" href="../css/flaticon.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/search.css">
-  <link rel="stylesheet" href="../css/menu.css">
-  <link rel="stylesheet" href="../css/dropdown.css">
-  <link rel="stylesheet" href="../css/form.css">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../../../css/animate.css">
+  <link rel="stylesheet" href="../../../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../../../css/magnific-popup.css">
+  <link rel="stylesheet" href="../../../css/flaticon.css">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/search.css">
+  <link rel="stylesheet" href="../../../css/menu.css">
+  <link rel="stylesheet" href="../../../css/dropdown.css">
+  <link rel="stylesheet" href="../../../css/form.css">
+  <link rel="stylesheet" href="../../../css/main.css">
 
 	<!-- FAVICON -->
-	<link rel="icon" href="../images/favicon/favicon.svg" type="image/x-icon">
-	<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
-	<link rel="manifest" href="../images/favicon/site.webmanifest">
-	<link rel="mask-icon" href="../images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="icon" href="../../../images/favicon/favicon.svg" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../../images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../../../images/favicon/site.webmanifest">
+	<link rel="mask-icon" href="../../../images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
   
@@ -48,8 +48,8 @@
           <li class="nav-item"><a href="/" class="nav-link"><span> 홈 </span></a></li>
           <li class="nav-item"><a href="/#chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a></li>
           <li class="nav-item"><a href="/report" class="nav-link"><span> 고장 신고 </span></a></li>
-          <li class="nav-item"><a href="/notice" class="nav-link"><span> 공지사항 </span></a></li>
-          <li class="nav-item"><a href="/notice#page-2" class="nav-link"><span> 자주 하는 질문 </span></a></li>
+          <li class="nav-item"><a href="/notice/1/1" class="nav-link"><span> 공지사항 </span></a></li>
+          <li class="nav-item"><a href="/notice/1/1#page-2" class="nav-link"><span> 자주 하는 질문 </span></a></li>
         </ul>
       </div>
     </div>
@@ -66,9 +66,9 @@
         <div class="col-md-3 mb-4">
             <nav id="navi">
               <ul>
-                <li><a href="/notice"> 공지사항 </a></li>
-                <li><a href="/notice#page-2"> 자주 하는 질문 </a></li>
-                <li><a href="/notice#page-3"> 그 외 </a></li>
+                <li><a href="/notice/1/1"> 공지사항 </a></li>
+                <li><a href="/notice/1/1#page-2"> 자주 하는 질문 </a></li>
+                <li><a href="/notice/1/1#page-3"> 그 외 </a></li>
               </ul>
           </nav>
           </div>
@@ -80,19 +80,19 @@
                 <form>
                   <tr>
                     <td bgcolor="#deecdd">제목</td>
-                    <td colspan=3>미림여자정보과학고 축제 관련 수리 지연 안내</td>
+                    <td colspan=3><%= notice[0].title %></td>
                     <td bgcolor="#deecdd">작성일</td>
-                    <td>20XX-XX-XX</td>
+                    <td><%= notice[0].date %></td>
                   </tr>
                   <tr height="200px">
                     <td bgcolor="#deecdd" style="font-family: 'Noto Sans KR', sans-serif;">내용</td>
-                    <td colspan="5">축제 장비 지원으로 자리 비웁니다.</td>
+                    <td colspan="5"><%= notice[0].content %></td>
                   </tr>
                   <tr align="right">
                     <td colspan="6">
                         <input type="button" class="form-button" value="수정하기"></button>
                         <input type="button" class="form-button" value="삭제하기"></button>
-                        <input type="button" class="form-button" value="글 목록으로" onclick="location.href='/notice'"></a>
+                        <input type="button" class="form-button" value="글 목록으로" onclick="location.href='/notice/1/1'"></a>
                     </td>
                 </tr>
             </form>
@@ -120,17 +120,17 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/jquery.easing.1.3.js"></script>
-  <script src="../js/jquery.waypoints.min.js"></script>
-  <script src="../js/jquery.stellar.min.js"></script>
-  <script src="../js/owl.carousel.min.js"></script>
-  <script src="../js/jquery.magnific-popup.min.js"></script>
-  <script src="../js/jquery.animateNumber.min.js"></script>
-  <script src="../js/scrollax.min.js"></script>
-  <script src="../js/main.js"></script>
+  <script src="../../../js/jquery.min.js"></script>
+  <script src="../../../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../../../js/popper.min.js"></script>
+  <script src="../../../js/bootstrap.min.js"></script>
+  <script src="../../../js/jquery.easing.1.3.js"></script>
+  <script src="../../../js/jquery.waypoints.min.js"></script>
+  <script src="../../../js/jquery.stellar.min.js"></script>
+  <script src="../../../js/owl.carousel.min.js"></script>
+  <script src="../../../js/jquery.magnific-popup.min.js"></script>
+  <script src="../../../js/jquery.animateNumber.min.js"></script>
+  <script src="../../../js/scrollax.min.js"></script>
+  <script src="../../../js/main.js"></script>
 </body>
 </html>

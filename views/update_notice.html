@@ -53,8 +53,8 @@
           <li class="nav-item"><a href="/" class="nav-link"><span> 홈 </span></a></li>
           <li class="nav-item"><a href="/#chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a></li>
           <li class="nav-item"><a href="/report" class="nav-link"><span> 고장 신고 </span></a></li>
-          <li class="nav-item"><a href="/notice" class="nav-link"><span> 공지사항 </span></a></li>
-          <li class="nav-item"><a href="/notice#page-2" class="nav-link"><span> 자주 하는 질문 </span></a></li>
+          <li class="nav-item"><a href="/notice/1/1" class="nav-link"><span> 공지사항 </span></a></li>
+          <li class="nav-item"><a href="/notice/1/1#page-2" class="nav-link"><span> 자주 하는 질문 </span></a></li>
         </ul>
       </div>
     </div>
@@ -71,9 +71,9 @@
         <div class="col-md-3 mb-4">
           <nav id="navi">
             <ul>
-              <li><a href="/notice #page-1"> 공지사항 </a></li>
-              <li><a href="/notice #page-2"> 자주 하는 질문 </a></li>
-              <li><a href="/notice #page-3"> 그 외 </a></li>
+              <li><a href="/notice/1/1 #page-1"> 공지사항 </a></li>
+              <li><a href="/notice/1/1 #page-2"> 자주 하는 질문 </a></li>
+              <li><a href="/notice/1/1 #page-3"> 그 외 </a></li>
             </ul>
         </nav>
         </div>
@@ -96,7 +96,7 @@
                   <td colspan="6">
                       <input type="submit" class="form-button" id="form-save" value="글 수정하기"></button>
                       <input type="reset" class="form-button" value="다시 쓰기"></button>
-                      <input type="button" class="form-button" value="뒤로" onclick="location.href='/notice #notice-section #page-2'"></a>
+                      <input type="button" class="form-button" value="뒤로" onclick="location.href=history.back()"></a>
                   </td>
               </tr>
           </form>
