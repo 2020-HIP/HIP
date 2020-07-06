@@ -27,6 +27,7 @@ router.get('/list', function(req, res, next) {
         report.find({place_id: place_id}).toArray((err, result) => {
             if (err) throw err;
             if (result.length > 0) {
+                console.log("result[0] : " + result[0]._id)
                 res.render('report_list', {place_id: place_id, result: result});
             } else {
                 console.log('report 리스트 없음');
@@ -34,10 +35,6 @@ router.get('/list', function(req, res, next) {
             }
         });
     });
-});
-
-router.post('/list', function(req, res, next) {
-
 });
 
 router.get('/add', function(req, res, next) {
@@ -75,6 +72,7 @@ router.post('/add', function(req, res, next) {
     let date = formatDate(new Date());
     let solution = 0;
 
+    console.log("num : " + num);
 
     console.log(`place_id(${place_id}), computer_id(${computer_id}), wrong_report(${wrong_report}) ,
     report_title(${report_title}), report_content(${report_content}), password(${password}), writer_name(${writer_name}),
@@ -105,12 +103,21 @@ router.post('/add', function(req, res, next) {
     });
 });
 
-router.get('/view', function(req, res, next) {
-    res.render('read_report');
-});
+router.get('/read/:report_num', (req, res, next) => {
+    let report_num = req.params.report_num;
 
-router.post('/view', function(req, res, next) {
+    getConn((err, db) => {
+        if (err) throw err;
+        var user = db.db('local');
+        var report = user.collection('report');
 
+        report.find({ _id: "ObjectId(\"" + report_num + "\")" }).toArray((err, result) => {
+            if (err) throw err;
+            console.log(result);
+            console.log("ObjectId(\"" + report_num + "\")");
+            res.render('read_report', { result: result });
+        });
+    });
 });
 
 module.exports = router;
