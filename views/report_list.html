@@ -186,12 +186,17 @@
                   if (result.length > 0) {
                     for(let i = 0; i < result.length; i++){
                   %>
+
                       <tr>
                         <td scope="row" title="컴퓨터 번호" class="first "><%=result[i].computer_id%></td>
                         <td scope="row" title="작성일"><%=result[i].date%></td>
-                        <td scope="row" title="제목" class="board_title1"><%=result[i].report_title%></td>
+                          <td scope="row" title="제목" class="board_title1">
+                            <a href="/report/read/<%= result[i]._id %>">
+                              <%=result[i].report_title%>
+                            </a>
+                          </td>
                         <td scope="row" title="작성자"><%=result[i].writer_name%></td>
-                        <td scope="row" title="댓글 수"> 댓글이 없는걸? </td>
+                        <td scope="row" title="댓글 수"> 0 </td>
                         <td scope="row" title="해결 여부">
                           <% if (result[i].solution == 1) { %>
                             O
@@ -212,7 +217,7 @@
               </table>
             </div>
             <form align="right">
-              <input type="button" class="board-button" value="신고하러 가기" onclick="location.href='/report/add'">
+              <input type="button" class="board-button" value="신고하러 가기" onclick="location.href='/report/add?place_id=' + '<%=place_id%>'">
             </form>
             <div id="paging" class="paging"> 
               <a href="#none" class="on"><strong>1</strong></a><a href="#none" onclick="fn_notice_link_page(2); " >2</a><a href="#none" onclick="fn_notice_link_page(3); " >3</a><a href="#none" onclick="fn_notice_link_page(4); " >4</a><a href="#none" onclick="fn_notice_link_page(5); " >5</a>  
