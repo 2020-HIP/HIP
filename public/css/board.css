@@ -36,3 +36,13 @@ input:focus, button:focus{
     border: 0;
     outline: 0;
 }
+
+.search{
+    width: 80%;
+    height: auto;
+    border: #deecdd 1px solid;
+}
+ .btn_07{
+     width: 20%;
+     height: auto;
+ }
