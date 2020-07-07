@@ -16,6 +16,7 @@ router.get('/', function (req, res, next) {
   res.render('school-map');
 });
 
+
 router.get('/list', function (req, res, next) {
   let place_id = req.query.place_id;
 
@@ -59,7 +60,7 @@ router.get('/list', function (req, res) {
     report.find({ place_id: place_id }).toArray((err, result) => {
       if (err) throw err;
       if (result.length > 0) {
-        console.log('result[0] : ' + result[0]._id);
+        console.log('result[0] : ' + result[0].num);
         res.render('report_list', {
           place_name: place_name,
           place_id: place_id,
@@ -68,7 +69,7 @@ router.get('/list', function (req, res) {
       } else {
         console.log('report 리스트 없음');
         res.render('report_list', {
-          place_name: place_name,
+          place_name: place_id,
           place_id: place_id,
           result: [],
         });
@@ -102,6 +103,27 @@ router.get('/add', function (req, res, next) {
 });
 
 router.post('/add', function (req, res, next) {
+
+  getConn((err, db) => {
+    if (err) throw err;
+    var user = db.db('hip');
+    var report = user.collection('report');
+
+    report.find({}).toArray((err, reports) => {
+      if (err) throw err;
+      let last_report = reports.length - 1;
+      if (reports.length - 1 < 0) {
+        req.num = 0;
+      } else {
+        req.num = reports[last_report].num + 1;
+      }
+      next();
+    });
+  });
+});
+
+router.post('/add', function (req, res, next) {
+  let num = req.num;
   let place_id = req.query.place_id || req.body.place_id;
   let computer_id = req.query.computer_id || req.body.computer_id;
   let wrong_report = req.query.wrong_report || req.body.wrong_report;
@@ -113,8 +135,9 @@ router.post('/add', function (req, res, next) {
   let solution = 0;
 
   console.log('HI');
+  console.log(typeof num);
 
-  console.log(`place_id(${place_id}), computer_id(${computer_id}), wrong_report(${wrong_report}) ,
+  console.log(`num(${place_id}), lace_id(${place_id}), computer_id(${computer_id}), wrong_report(${wrong_report}) ,
     report_title(${report_title}), report_content(${report_content}), password(${password}), writer_name(${writer_name}),
     date(${date}), solution=(${solution})`);
 
@@ -125,6 +148,7 @@ router.post('/add', function (req, res, next) {
 
     report.insertOne(
       {
+        num: parseInt(num),
         place_id: place_id,
         computer_id: computer_id,
         wrong_report: wrong_report,
@@ -143,8 +167,10 @@ router.post('/add', function (req, res, next) {
   });
 });
 
-router.get('/read/:report_num', (req, res, next) => {
-  let report_num = req.params.report_num;
+router.get('/read/:num', (req, res, next) => {
+  let num = Number(req.params.num);
+
+  console.log('num : ' + typeof num);
 
   getConn((err, db) => {
     if (err) throw err;
@@ -152,11 +178,10 @@ router.get('/read/:report_num', (req, res, next) => {
     var report = user.collection('report');
 
     report
-      .find({ _id: 'ObjectId("' + report_num + '")' })
+      .find({ num: num })
       .toArray((err, result) => {
         if (err) throw err;
         console.log(result);
-        console.log('ObjectId("' + report_num + '")');
         res.render('read_report', { result: result });
       });
   });
