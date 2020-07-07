@@ -216,20 +216,19 @@
     			<div class="col-md-3 mb-4">
 				    <nav id="navi">
 					    <ul>
-					      <li><a href="#page-1"> 고장 현황 </a></li>
-						  <li><a href="#page-2"> 수리 현황 </a></li>
-						  <li><a href="#page-3"> 이용 불가 현황 </a></li>
+					      <li><a href="#page-1"> 프로그램 미설치 현황 </a></li>
+						  <li><a href="#page-2"> 컴퓨터 이상 현황 </a></li>
+						  <li><a href="#page-3"> 기타 현황 </a></li>
 					    </ul>
 					</nav>
 					</div>
 					<div class="col-md-9">
 					  <div id="page-1" class= "page bg-light one">
 							<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 고장 현황 </h2>
-							<% if (docs.length > 0) { for(let i = 0; i < docs.length; i++){%> 
-								<p> <%=docs[i].report_title%> <%=docs[i].date%> </p>
-							<% }} else { %>
-							<p> 현재 고장이 접수 된 실습실 현황을 확인해 보세요 </p>
-							<% } %>
+							
+							<p> 현재 프로그램이 미설치 된 실습실 현황을 확인해 보세요 </p>
+							
+							
 							<div class="table-responsive">
 								<table class="table table-hover" summary="컴퓨터 위치, 제목, 신고일" align="center">
 									<colgroup>
@@ -245,31 +244,17 @@
 									  </tr>
 									</thead>
 									<tbody>
+										<% if (wrong_report_0.length > 0) { 
+											console.log(wrong_report_0);
+											for(let i = 0; i < wrong_report_0.length; i++){%> 
 										<tr>
-											<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-											<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-											<td scope="row" title="신고일">2020-XX-XX</td>
+											<td scope="row" title="컴퓨터 위치" class="first "><%= wrong_report_0[i].broken[0].name %></td>
+											<td scope="row" title="제목" class="board_title1"><%= wrong_report_0[i].report_title %></td>
+											<td scope="row" title="신고일"><%=wrong_report_0[i].date%></td>
 										</tr>
-										<tr>
-											<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-											<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-											<td scope="row" title="신고일">2020-XX-XX</td>
-										</tr>
-										<tr>
-											<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-											<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-											<td scope="row" title="신고일">2020-XX-XX</td>
-										</tr>
-										<tr>
-											<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-											<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-											<td scope="row" title="신고일">2020-XX-XX</td>
-										</tr>
-										<tr>
-											<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-											<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-											<td scope="row" title="신고일">2020-XX-XX</td>
-										</tr>
+										<% }} else { %>
+											<tr><td>신고가 없습니다</td></tr>
+										<% } %>
 									</tbody>
 								  </table>
 							</div>
