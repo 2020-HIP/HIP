@@ -62,28 +62,37 @@ router.get('/notice', (req, res) => {
 });
 
 router.post('/notice', (req, res, next) => {
-  getConn((err, db) => {
-    if (err) throw err;
-    var user = db.db('hip');
-    var notice = user.collection('notice');
+  let password = req.query.user_pw || req.body.user_pw;
 
-    notice.find({}).toArray((err, notices) => {
+  console.log(password === 'rhwkdtlsfh20@)');
+
+  if (password !== 'rhwkdtlsfh20@)') {
+    res.send(
+      '<script> alert("비밀번호가 틀렸습니다."); location.href="/notice/notice" </script>'
+    );
+  } else {
+    getConn((err, db) => {
       if (err) throw err;
-      let last_notice = notices.length - 1;
-      if (notices.length - 1 < 0) {
-        req.num = 0;
-      } else {
-        req.num = notices[last_notice].num + 1;
-      }
-      next();
+      var user = db.db('hip');
+      var notice = user.collection('notice');
+
+      notice.find({}).toArray((err, notices) => {
+        if (err) throw err;
+        let last_notice = notices.length - 1;
+        if (notices.length - 1 < 0) {
+          req.num = 0;
+        } else {
+          req.num = notices[last_notice].num + 1;
+        }
+        next();
+      });
     });
-  });
+  }
 });
 
 router.post('/notice', (req, res) => {
   let num = req.num;
   let title = req.query.report_title || req.body.report_title;
-  let password = req.query.user_pw || req.body.user_pw;
   let content = req.query.report_content || req.body.report_content;
   let date = formatDate(new Date());
   let count = 0;
@@ -108,23 +117,33 @@ router.get('/question', (req, res) => {
 });
 
 router.post('/question', (req, res, next) => {
-  getConn((err, db) => {
-    if (err) throw err;
-    var user = db.db('hip');
-    var question = user.collection('question');
+  let password = req.query.user_pw || req.body.user_pw;
 
-    question.find({}).toArray((err, questions) => {
+  console.log(password === 'rhwkdtlsfh20@)');
+
+  if (password !== 'rhwkdtlsfh20@)') {
+    res.send(
+      '<script> alert("비밀번호가 틀렸습니다."); location.href="/notice/question" </script>'
+    );
+  } else {
+    getConn((err, db) => {
       if (err) throw err;
-      let last_question = questions.length - 1;
-      if (questions.length - 1 < 0) {
-        req.num = 0;
-      } else {
-        req.num = questions[last_question].num + 1;
-      }
+      var user = db.db('hip');
+      var question = user.collection('question');
 
-      next();
+      question.find({}).toArray((err, questions) => {
+        if (err) throw err;
+        let last_question = questions.length - 1;
+        if (questions.length - 1 < 0) {
+          req.num = 0;
+        } else {
+          req.num = questions[last_question].num + 1;
+        }
+
+        next();
+      });
     });
-  });
+  }
 });
 
 router.post('/question', (req, res) => {
