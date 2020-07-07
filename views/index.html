@@ -41,7 +41,7 @@
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="#home-section" class="nav-link"><span> 홈 </span></a></li>
 	          <li class="nav-item"><a href="#about-section" class="nav-link"><span> HIP 이란? </span></a></li>
-	          <li class="nav-item"><a href="#chapter-section" class="nav-link"><span> 고장 / 수리 / 이용 불가 </span></a></li>
+	          <li class="nav-item"><a href="#chapter-section" class="nav-link"><span> 고장 / 이용 불가 현황 </span></a></li>
 	          <li class="nav-item"><a href="#testimonial-section" class="nav-link"><span> 팀원 후기 </span></a></li>
 	          <li class="nav-item"><a href="/report" class="nav-link"><span> 고장 신고 </span></a></li>
 			  <li class="nav-item"><a href="/notice/1/1" class="nav-link"><span> 공지사항 </span></a></li>
@@ -224,7 +224,7 @@
 					</div>
 					<div class="col-md-9">
 					  <div id="page-1" class= "page bg-light one">
-							<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 고장 현황 </h2>
+							<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 프로그램 미설치 현황 </h2>
 							
 							<p> 현재 프로그램이 미설치 된 실습실 현황을 확인해 보세요 </p>
 							
@@ -245,7 +245,7 @@
 									</thead>
 									<tbody>
 										<% if (wrong_report_0.length > 0) { 
-											console.log(wrong_report_0);
+											
 											for(let i = 0; i < wrong_report_0.length; i++){%> 
 										<tr>
 											<td scope="row" title="컴퓨터 위치" class="first "><%= wrong_report_0[i].broken[0].name %></td>
@@ -260,8 +260,8 @@
 							</div>
 					  </div>
 					  <div id="page-2" class= "page bg-light two">
-						<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 수리 현황 </h2>
-						<p> 현재 고장이 접수 되어 수리 중에 있는 실습실 현황을 확인해 보세요 </p>
+						<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 컴퓨터 이상 현황 </h2>
+						<p> 현재 컴퓨터에 이상 있는 실습실 현황을 확인해 보세요 </p>
 						<div class="table-responsive">
 							<table class="table table-hover" summary="컴퓨터 위치, 제목, 신고일" align="center">
 								<colgroup>
@@ -277,39 +277,25 @@
 								  </tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-										<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-										<td scope="row" title="신고일">2020-XX-XX</td>
-									</tr>
-									<tr>
-										<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-										<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-										<td scope="row" title="신고일">2020-XX-XX</td>
-									</tr>
-									<tr>
-										<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-										<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-										<td scope="row" title="신고일">2020-XX-XX</td>
-									</tr>
-									<tr>
-										<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-										<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-										<td scope="row" title="신고일">2020-XX-XX</td>
-									</tr>
-									<tr>
-										<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-										<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-										<td scope="row" title="신고일">2020-XX-XX</td>
-									</tr>
+									<% if (wrong_report_1.length > 0) { 
+											
+											for(let i = 0; i < wrong_report_1.length; i++){%> 
+										<tr>
+											<td scope="row" title="컴퓨터 위치" class="first "><%= wrong_report_1[i].broken[0].name %></td>
+											<td scope="row" title="제목" class="board_title1"><%= wrong_report_1[i].report_title %></td>
+											<td scope="row" title="신고일"><%=wrong_report_1[i].date%></td>
+										</tr>
+										<% }} else { %>
+											<tr><td>신고가 없습니다</td></tr>
+										<% } %>
 								</tbody>
 							  </table>
 						  </div>
 					</div>
 					  <div id="page-3" class= "page bg-light three">
-					  	<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 이용 불가 현황 </h2>
-					  	<p> 현재 고장이 접수 되어 수리 중에 있어, 이용이 불가능한 실습실 현황을 확인해 보세요 </p>
-					  </div>
+					  	<h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 기타 현황 </h2>
+					  	<p> 프로그램 미설치, 컴퓨터 이상 이외의 컴퓨터에 문제가 있는 실습실 현황을 확인해 보세요 </p>
+					  
 					  <div class="table-responsive">
 						<table class="table table-hover" summary="컴퓨터 위치, 제목, 신고일" align="center">
 							<colgroup>
@@ -325,34 +311,21 @@
 							  </tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-									<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-									<td scope="row" title="신고일">2020-XX-XX</td>
-								</tr>
-								<tr>
-									<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-									<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-									<td scope="row" title="신고일">2020-XX-XX</td>
-								</tr>
-								<tr>
-									<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-									<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-									<td scope="row" title="신고일">2020-XX-XX</td>
-								</tr>
-								<tr>
-									<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-									<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-									<td scope="row" title="신고일">2020-XX-XX</td>
-								</tr>
-								<tr>
-									<td scope="row" title="컴퓨터 위치" class="first ">3-4</td>
-									<td scope="row" title="제목" class="board_title1">컴이 안 켜져요 ㅜㅜ</td>
-									<td scope="row" title="신고일">2020-XX-XX</td>
-								</tr>
+								<% if (wrong_report_2.length > 0) { 
+											
+											for(let i = 0; i < wrong_report_2.length; i++){%> 
+										<tr>
+											<td scope="row" title="컴퓨터 위치" class="first "><%= wrong_report_2[i].broken[0].name %></td>
+											<td scope="row" title="제목" class="board_title1"><%= wrong_report_2[i].report_title %></td>
+											<td scope="row" title="신고일"><%=wrong_report_2[i].date%></td>
+										</tr>
+										<% }} else { %>
+											<tr><td>신고가 없습니다</td></tr>
+										<% } %>
 							</tbody>
 						  </table>
-					  </div>
+						</div>
+					</div>
 					</div>
 			  </div>
     	</div>
