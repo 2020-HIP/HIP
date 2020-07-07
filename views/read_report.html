@@ -144,14 +144,14 @@
         <div class="col-md-9" style="float: right;">
           <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 고장 신고
             확인하기 </h2><br>
-          <p> (현재 선택한 장소 이름)에 있는 도움이 필요한 컴퓨터가 궁금한가요? </p><br>
+          <p> <%=result[0].place_id%>에 있는 도움이 필요한 컴퓨터가 궁금한가요? </p><br>
           <table class="table" style="vertical-align: middle;" width="900px">
             <form>
               <tr>
                 <td bgcolor="#deecdd" width="140px">신고 접수 장소</td>
-                <td colspan="2" width="340px">NCS응용프로그래밍개발실습실-5</td>
+                <td colspan="2" width="340px"><%=result[0].place_id%></td>
                 <td bgcolor="#deecdd" width="120px">작성자 이름</td>
-                <td>이딩해</td>
+                <td><%=result[0].writer_name%></td>
               </tr>
               <!-- <tr>
                     <td colspan="6" style="font-weight: 100; color: #8CD790;">쉬운 비밀번호를 입력하면 타인의 수정, 삭제가 쉽습니다.</td>
@@ -165,21 +165,21 @@
                   <input type="radio" name="wrong_report" value="wrong_ect" onclick="return(false);"> 기타
                 </td>
                 <td bgcolor="#deecdd">컴퓨터 번호</td>
-                <td>22</td>
+                <td><%=result[0].computer_id%></td>
               </tr>
               <tr>
                 <td bgcolor="#deecdd">제목</td>
-                <td colspan=5>컴퓨터가 안 되는 거 같아요</td>
+                <td colspan=5><%=result[0].report_title%></td>
               </tr>
               <tr height="200px">
                 <td bgcolor="#deecdd" style="font-family: 'Noto Sans KR', sans-serif;">내용</td>
-                <td colspan="5">아무튼 안됨</td>
+                <td colspan="5"><%=result[0].report_content%></td>
               </tr>
               <tr align="right">
                 <td colspan="6">
                   <input type="button" class="form-button" value="수정하기"></button>
                   <input type="button" class="form-button" value="삭제하기"></button>
-                  <input type="button" class="form-button" value="글 목록으로" onclick="location.href='/report/list'"></a>
+                  <input type="button" class="form-button" value="글 목록으로" onclick="location.href='/report/list?place_id=' + '<%=result[0].place_id%>'"></a>
                 </td>
               </tr>
             </form>
