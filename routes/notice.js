@@ -18,7 +18,7 @@ router.get('/:notice_page/:question_page', function (req, res, next) {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var notice = user.collection('notice');
 
     notice.find({}).toArray((err, notices) => {
@@ -37,7 +37,7 @@ router.get('/:notice_page/:question_page', function (req, res, next) {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
 
     var question = user.collection('question');
 
@@ -62,35 +62,42 @@ router.get('/notice', (req, res) => {
 });
 
 router.post('/notice', (req, res, next) => {
-  getConn((err, db) => {
-    if (err) throw err;
-    var user = db.db('local');
-    var notice = user.collection('notice');
+  let password = req.query.user_pw || req.body.user_pw;
 
-    notice.find({}).toArray((err, notices) => {
+  if (password !== 'rhwkdtlsrh') {
+    res.send(
+      '<script> alert("비밀번호가 틀렸습니다."); location.href="/notice/notice" </script>'
+    );
+  } else {
+    getConn((err, db) => {
       if (err) throw err;
-      let last_notice = notices.length - 1;
-      if (notices.length - 1 < 0) {
-        req.num = 0;
-      } else {
-        req.num = notices[last_notice].num + 1;
-      }
-      next();
+      var user = db.db('hip');
+      var notice = user.collection('notice');
+
+      notice.find({}).toArray((err, notices) => {
+        if (err) throw err;
+        let last_notice = notices.length - 1;
+        if (notices.length - 1 < 0) {
+          req.num = 0;
+        } else {
+          req.num = notices[last_notice].num + 1;
+        }
+        next();
+      });
     });
-  });
+  }
 });
 
 router.post('/notice', (req, res) => {
   let num = req.num;
   let title = req.query.report_title || req.body.report_title;
-  let password = req.query.user_pw || req.body.user_pw;
   let content = req.query.report_content || req.body.report_content;
   let date = formatDate(new Date());
   let count = 0;
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var notice = user.collection('notice');
 
     notice.insertOne(
@@ -108,23 +115,31 @@ router.get('/question', (req, res) => {
 });
 
 router.post('/question', (req, res, next) => {
-  getConn((err, db) => {
-    if (err) throw err;
-    var user = db.db('local');
-    var question = user.collection('question');
+  let password = req.query.user_pw || req.body.user_pw;
 
-    question.find({}).toArray((err, questions) => {
+  if (password !== 'rhwkdtlsrh') {
+    res.send(
+      '<script> alert("비밀번호가 틀렸습니다."); location.href="/notice/question" </script>'
+    );
+  } else {
+    getConn((err, db) => {
       if (err) throw err;
-      let last_question = questions.length - 1;
-      if (questions.length - 1 < 0) {
-        req.num = 0;
-      } else {
-        req.num = questions[last_question].num + 1;
-      }
+      var user = db.db('hip');
+      var question = user.collection('question');
 
-      next();
+      question.find({}).toArray((err, questions) => {
+        if (err) throw err;
+        let last_question = questions.length - 1;
+        if (questions.length - 1 < 0) {
+          req.num = 0;
+        } else {
+          req.num = questions[last_question].num + 1;
+        }
+
+        next();
+      });
     });
-  });
+  }
 });
 
 router.post('/question', (req, res) => {
@@ -136,7 +151,7 @@ router.post('/question', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var question = user.collection('question');
 
     question.insertOne(
@@ -149,12 +164,12 @@ router.post('/question', (req, res) => {
   });
 });
 
-router.get('/notice_list/read/:notice_list', (req, res, next) => {
+router.get('/notice_list/read/:notice_num', (req, res, next) => {
   let notice_num = req.params.notice_num;
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var notice = user.collection('notice');
 
     notice.updateOne(
@@ -162,6 +177,7 @@ router.get('/notice_list/read/:notice_list', (req, res, next) => {
       { $inc: { count: 1 } },
       (err, result) => {
         if (err) throw err;
+        console.log(result);
         next();
       }
     );
@@ -173,7 +189,7 @@ router.get('/notice_list/read/:notice_num', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var notice = user.collection('notice');
 
     notice.find({ num: parseInt(notice_num) }).toArray((err, notice) => {
@@ -188,7 +204,7 @@ router.get('/question_list/read/:question_num', (req, res, next) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var question = user.collection('question');
 
     question.updateOne(
@@ -207,7 +223,7 @@ router.get('/question_list/read/:question_num', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var question = user.collection('question');
 
     question.find({ num: parseInt(question_num) }).toArray((err, question) => {
@@ -223,7 +239,7 @@ router.get('/notice_list/update/:notice_num', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var notice = user.collection('notice');
 
     notice.find({ num: parseInt(notice_num) }).toArray((err, notice) => {
@@ -243,7 +259,7 @@ router.post('/notice_list/update/:notice_num', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var notice = user.collection('notice');
 
     notice.updateOne(
@@ -263,7 +279,7 @@ router.get('/question_list/update/:question_num', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var question = user.collection('question');
 
     question.find({ num: parseInt(question_num) }).toArray((err, question) => {
@@ -282,7 +298,7 @@ router.post('/question_list/update/:question_num', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var question = user.collection('question');
 
     question.updateOne(
@@ -302,7 +318,7 @@ router.post('/notice_list/delete/:notice_num', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var notice = user.collection('notice');
 
     notice.deleteOne({ num: parseInt(notice_num) }, (err, result) => {
@@ -318,7 +334,7 @@ router.post('/question_list/delete/:question_num', (req, res) => {
 
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var question = user.collection('question');
 
     question.deleteOne({ num: parseInt(question_num) }, (err, result) => {

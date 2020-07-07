@@ -21,7 +21,7 @@ router.get('/list', function(req, res, next) {
 
     getConn((err, db) => {
         if (err) throw err;
-        let user = db.db('local');
+        let user = db.db('hip');
         let report = user.collection('report');
 
         report.find({place_id: place_id}).toArray((err, result) => {
@@ -42,7 +42,7 @@ router.get('/add', function(req, res, next) {
 
     getConn((err, db) => {
         if (err) throw err;
-        let user = db.db('local');
+        let user = db.db('hip');
         let place = user.collection('place');
 
         place.find({id: place_id}).toArray((err, result) => {
@@ -80,7 +80,7 @@ router.post('/add', function(req, res, next) {
 
     getConn((err, db) => {
         if (err) throw err;
-        var user = db.db('local');
+        var user = db.db('hip');
         var report = user.collection('report');
 
         report.insertOne(
@@ -108,7 +108,7 @@ router.get('/read/:report_num', (req, res, next) => {
 
     getConn((err, db) => {
         if (err) throw err;
-        var user = db.db('local');
+        var user = db.db('hip');
         var report = user.collection('report');
 
         report.find({ _id: "ObjectId(\"" + report_num + "\")" }).toArray((err, result) => {

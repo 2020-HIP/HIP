@@ -6,7 +6,7 @@ var getConn = require('../db/connection');
 router.get('/', function (req, res, next) {
   getConn((err, db) => {
     if (err) throw err;
-    var user = db.db('local');
+    var user = db.db('hip');
     var report = user.collection('report');
 
     report
