@@ -149,7 +149,7 @@ router.post('/question', (req, res) => {
   });
 });
 
-router.get('/notice_list/read/:notice_list', (req, res, next) => {
+router.get('/notice_list/read/:notice_num', (req, res, next) => {
   let notice_num = req.params.notice_num;
 
   getConn((err, db) => {
