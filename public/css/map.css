@@ -1,47 +1,15 @@
-.main-3F{
-    width: 900px;
-    height: 100px;
+.table{
+    width: 100%;
+    margin-top: 3em; 
+    margin-bottom: 18.75em; 
+    border-top:#008256 4px solid;
+    border-collapse: collapse;
+    border-spacing: 0px;
 }
 
-.main-3F-room{
-    width: 156px;
-    border: white 1px solid;
-    margin: 5px;
-    float: left;
-}
 
-.main-4F{
-    width: 900px;
-    height: 100px;
-}
-
-.main-4F-room{
-    width: 122px;
-    border: white 1px solid;
-    margin: 5px;
-    float: left;
-}
-
-.third-building{
-    width: 900px;
-    height: 100px;
-}
-
-.third-building-room{
-    width: 174px;
-    border: white 1px solid;
-    margin: 5px;
-    float: left;
-}
-
-.building-button{
-    margin: 0px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-}
-
-.building-button:active, .building-button:hover, .building-button:visited{
-    border: none;
-    outline: none;
+img{
+     max-width: 100%;
+     max-height: 100%;
+     height: auto;
 }
