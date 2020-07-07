@@ -64,9 +64,7 @@ router.get('/notice', (req, res) => {
 router.post('/notice', (req, res, next) => {
   let password = req.query.user_pw || req.body.user_pw;
 
-  console.log(password === 'rhwkdtlsfh');
-
-  if (password !== 'rhwkdtlsfh') {
+  if (password !== 'rhwkdtlsrh') {
     res.send(
       '<script> alert("비밀번호가 틀렸습니다."); location.href="/notice/notice" </script>'
     );
@@ -119,9 +117,7 @@ router.get('/question', (req, res) => {
 router.post('/question', (req, res, next) => {
   let password = req.query.user_pw || req.body.user_pw;
 
-  console.log(password === 'rhwkdtlsfh');
-
-  if (password !== 'rhwkdtlsfh') {
+  if (password !== 'rhwkdtlsrh') {
     res.send(
       '<script> alert("비밀번호가 틀렸습니다."); location.href="/notice/question" </script>'
     );
