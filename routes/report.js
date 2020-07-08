@@ -35,7 +35,7 @@ router.get('/list', function (req, res, next) {
         req.place_id = place_id;
         req.place_name = place_name;
 
-        console.log(req.place_id);
+        console.log(req.place_name);
         next();
       } else {
         req.place_id = place_id;
@@ -60,7 +60,7 @@ router.get('/list', function (req, res) {
     report.find({ place_id: place_id }).toArray((err, result) => {
       if (err) throw err;
       if (result.length > 0) {
-        console.log('result[0] : ' + result[0].num);
+        console.log('result[0] : ' + place_);
         res.render('report_list', {
           place_name: place_name,
           place_id: place_id,
@@ -69,7 +69,7 @@ router.get('/list', function (req, res) {
       } else {
         console.log('report 리스트 없음');
         res.render('report_list', {
-          place_name: place_id,
+          place_name: place_name,
           place_id: place_id,
           result: [],
         });
@@ -167,7 +167,44 @@ router.post('/add', function (req, res, next) {
   });
 });
 
-router.get('/read/:num', (req, res, next) => {
+router.get('/read/:place_id/:num', (req, res, next) => {
+  let place_id = req.params.place_id;
+  let num = Number(req.params.num);
+
+  console.log('num : ' + typeof num);
+
+  getConn((err, db) => {
+    if (err) throw err;
+    let user = db.db('hip');
+    let place = user.collection('place');
+
+    place.find({ id: place_id }).toArray((err, result) => {
+      if (err) throw err;
+      if (result.length > 0) {
+        let place_name = result[0].name;
+        console.log('result[0].name : ' + result[0].name);
+        console.log('place_name : ' + place_name);
+
+        req.place_id = place_id;
+        req.place_name = place_name;
+        req.num = num;
+
+        console.log(req.place_id);
+        console.log(req.place_name);
+        next();
+      } else {
+        req.place_id = place_id;
+        req.place_name = null;
+        req.num = num;
+        next();
+      }
+    });
+  });
+});
+
+router.get('/read/:place_name/:num', (req, res, next) => {
+  let place_id = req.place_id;
+  let place_name = req.place_name;
   let num = Number(req.params.num);
 
   console.log('num : ' + typeof num);
@@ -182,7 +219,7 @@ router.get('/read/:num', (req, res, next) => {
       .toArray((err, result) => {
         if (err) throw err;
         console.log(result);
-        res.render('read_report', { result: result });
+        res.render('read_report', { result: result, place_name: place_name });
       });
   });
 });
