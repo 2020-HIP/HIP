@@ -16,17 +16,17 @@
 
 	<!-- CSS -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/animate.css">
-  <link rel="stylesheet" href="../css/owl.carousel.min.css">
-  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../css/magnific-popup.css">
-  <link rel="stylesheet" href="../css/flaticon.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/search.css">
-  <link rel="stylesheet" href="../css/form.css">
-  <link rel="stylesheet" href="../css/menu.css">
-  <link rel="stylesheet" href="../css/dropdown.css">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../../../css/animate.css">
+  <link rel="stylesheet" href="../../../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../../../css/magnific-popup.css">
+  <link rel="stylesheet" href="../../../css/flaticon.css">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/search.css">
+  <link rel="stylesheet" href="../../../css/form.css">
+  <link rel="stylesheet" href="../../../css/menu.css">
+  <link rel="stylesheet" href="../../../css/dropdown.css">
+  <link rel="stylesheet" href="../../../css/main.css">
 
 	<!-- FAVICON -->
 	<link rel="icon" href="../images/favicon/favicon.svg" type="image/x-icon">
@@ -81,14 +81,21 @@
           <h2 class="heading" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 25px;"> 자주하는 질문 수정 </h2><br>
           <p> 질문을 수정합니다. </p><br>
           <table class="table" style="vertical-align: middle;" width="860px">
-            <form method="POST">
+            <form action="/report/update" method="post">
                 <tr>
                   <td bgcolor="#deecdd" width="140px">신고 접수 장소</td>
-                  <td width="250px"><input type="text" id="wrong-place" readonly class="input-text"><!-- 신고 접수 장소 --></td>
+                  <td width="250px">
+                    <input type="text" id="wrong-place" value="<%=place_name%>" readonly class="input-text"><!-- 신고 접수 장소 -->
+                    <input type="text" name="place_id" value="<%=result[0].place_id%>" hidden/>
+                  </td>
                   <td bgcolor="#deecdd" width="70px">이름</td>
-                  <td><input type="text" id="user-name" maxlength="4" size="4" class="input-text" readonly><!-- 이름 --></td>
+                  <td>
+                    <input type="text" id="user-name" name="writer_name" maxlength="4" value="<%=result[0].writer_name%>" size="4" class="input-text" readonly>
+                  </td>
                   <td bgcolor="#deecdd" widht="200px">비밀번호</td>
-                  <td><input type="password" id="user-pw" maxlength="10" size="10" class="input-text"><!-- 비밀번호 --></td>
+                  <td>
+                    <input type="password" id="user-pw" name="password" maxlength="10" size="10" value="<%=result[0].password%>" class="input-text">
+                  </td>
                 </tr>
                 <tr>
                   <td colspan="6" style="font-weight: 100; color: #8CD790;">쉬운 비밀번호를 입력하면 타인의 수정, 삭제가 쉽습니다.</td>
@@ -96,29 +103,31 @@
                 <tr>
                   <td bgcolor="#deecdd" width=50px>신고 접수 사유</td>
                   <td colspan=3>
-                    <input type="radio" id="wrong-report" name="wrong-report" value="none_program"> 프로그램 미설치&nbsp;
-                    <input type="radio" id="wrong-report" name="wrong-report" value="wrong_computer"> 컴퓨터 이상&nbsp;
-                    <input type="radio" id="wrong-report" name="wrong-report" value="wrong_ect"> 기타
+                    <input type="radio" name="wrong_report" value="none_program" checked> 프로그램 미설치&nbsp;
+                    <input type="radio" name="wrong_report" value="wrong_computer"> 컴퓨터 이상&nbsp;
+                    <input type="radio" name="wrong_report" value="wrong_ect"> 기타
                   </td>
                   <td bgcolor="#deecdd">컴퓨터 번호</td>
-                  <td><input type="text" id="computer-number" maxlength="2" size="2" class="input-text" readonly><!-- 컴퓨터 번호 --></td>
+                  <td>
+                    <input type="text" id="computer-number" name="computer_id" maxlength="2" value="<%=result[0].computer_id%>" size="2" class="input-text" readonly>
+                  </td>
                 </tr>
                 <tr>
                   <td bgcolor="#deecdd">제목</td>
-                  <td colspan=5><input type="text" id="report-title" class="input-text"><!-- 제목 --></td>
+                  <td colspan=5><input type="text" name="report_title" id="report-title" value="<%=result[0].report_title%>" class="input-text"><!-- 제목 --></td>
                 </tr>
                 <tr height="200px">
                   <td bgcolor="#deecdd" style="font-family: 'Noto Sans KR', sans-serif;">내용</td>
                   <td colspan="5"><textarea rows="10"
                       placeholder="본 게시판의 취지에 벗어난 글은 즉시 삭제되며, 음란물, 차별, 비하, 혐오 및 초상권 등 모든 법적으로 어긋나는 게시물은 삭제와 동시에 민.형사상 책임을 질 수 있습니다."
-                      name="report-content"><!-- 내용 --></textarea></td>
+                      name="report_content"><%=result[0].report_content%></textarea></td>
                 </tr>
                 <tr align="right">
                   <td colspan="6">
                     <input type="submit" class="form-button" id="form-save" value="글 수정하기"></button>
                     <input type="reset" class="form-button" value="다시 쓰기"></button>
                     <input type="button" class="form-button" value="글 목록으로"
-                      onclick="location.href='report_list.html'"></a>
+                           onclick="location.href='/report/list?place_id=' + '<%=result[0].place_id%>'"></a>
                   </td>
                 </tr>
               </form>
@@ -167,17 +176,17 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/jquery.easing.1.3.js"></script>
-  <script src="../js/jquery.waypoints.min.js"></script>
-  <script src="../js/jquery.stellar.min.js"></script>
-  <script src="../js/owl.carousel.min.js"></script>
-  <script src="../js/jquery.magnific-popup.min.js"></script>
-  <script src="../js/jquery.animateNumber.min.js"></script>
-  <script src="../js/scrollax.min.js"></script>
-  <script src="../js/main.js"></script>
+  <script src="../../../../js/jquery.min.js"></script>
+  <script src="../../../../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../../../../js/popper.min.js"></script>
+  <script src="../../../../js/bootstrap.min.js"></script>
+  <script src="../../../../js/jquery.easing.1.3.js"></script>
+  <script src="../../../../js/jquery.waypoints.min.js"></script>
+  <script src="../../../../js/jquery.stellar.min.js"></script>
+  <script src="../../../../js/owl.carousel.min.js"></script>
+  <script src="../../../../js/jquery.magnific-popup.min.js"></script>
+  <script src="../../../../js/jquery.animateNumber.min.js"></script>
+  <script src="../../../../js/scrollax.min.js"></script>
+  <script src="../../../../js/main.js"></script>
 </body>
 </html>
