@@ -3,3 +3,7 @@
 html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td, textarea, pre, input, select, span {
     margin:0;padding:0; font-family: 'Noto Sans KR', sans-serif;
     } 
+
+body::-webkit-scrollbar{
+    display: none;
+}
