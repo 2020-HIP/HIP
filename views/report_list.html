@@ -150,14 +150,14 @@
             <%=place_name %>의 신고 현황을 파악해보세요.
           </p>
           <br>
-          <div class="total_search">  
-            <form name="commandMap" id="commandMap" method="post" action="#none" onsubmit="return false;" align="center">
-                <fieldset>
-                    <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="신고현황 검색 키워드" class="input5 korean" value="" />
-                    <button type="button" class="btn_07" id="searchMain" title="신고현황 검색">검색</button>
-                </fieldset>                         
-            </form>
-            <br>
+<!--          <div class="total_search">  -->
+<!--            <form name="commandMap" id="commandMap" method="post" action="#none" onsubmit="return false;" align="center">-->
+<!--                <fieldset>-->
+<!--                    <input id="BBS_TEXT" name="BBS_TEXT" type="text" title="신고현황 검색 키워드" class="input5 korean" value="" />-->
+<!--                    <button type="button" class="btn_07" id="searchMain" title="신고현황 검색">검색</button>-->
+<!--                </fieldset>                         -->
+<!--            </form>-->
+<!--            <br>-->
             <div class="find_listBox">
 
               <table class="table" summary="컴퓨터 번호, 작성일, 제목, 작성자, 댓글 수, 해결 여부" align="center" width=900px>
@@ -210,7 +210,7 @@
                   } else {
                   %>
                       <tr>
-                        <td scope="row" colspan="6" class="first ">신고 내용이 없습니다</td>
+                        <td scope="row" colspan="5" class="first ">신고 내용이 없습니다</td>
                       </tr>
                   <% } %>
                 </tbody>
